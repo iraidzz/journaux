@@ -20,7 +20,6 @@ class CreatePublicationTable extends Migration
             $table->string('photo_couverture');
             $table->string('description');
             $table->string('prix_annuel');
-            $table->dateTime('date_parution');
             $table->timestamps();
         });
     }
