@@ -12,7 +12,7 @@
                     <hr>
                 </div>
                 <div class="col-md-offset-3 col-md-6 text-center">
-                    <form role="form" action="" method="post">
+                    <form role="form" action="{{action('PublicationController@ajouterPublication')}}" method="post">
                         {!! csrf_field() !!}
                         <div class="row">
                             <input name="user_id" type="hidden" value="" class="form-control">
@@ -22,24 +22,25 @@
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Image de l'article (URL Internet)</label>
-                                <input name="image" type="text" class="form-control">
+                                <input name="photo_couverture" type="text" class="form-control">
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Texte publication</label>
-                                <textarea name="message" class="form-control" rows="6"></textarea>
+                                <textarea name="description" class="form-control" rows="6"></textarea>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Prix à l'année</label>
-                                <input name="titre" type="text" class="form-control">
+                                <input name="prix_annuel" type="text" class="form-control">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Nombre de parutions à l'année</label>
-                                <input name="titre" type="text" class="form-control">
+                                <input name="nombre_numero" type="text" class="form-control">
                             </div>
                             <div class="form-group col-lg-12">
                                 <center><button type="submit" class="btn btn-default">Créer la publication.</button></center>
                             </div>
+                            <p style="color:green"><?php echo Session::get('message'); ?></p>
                         </div>
                     </form>
                 </div>

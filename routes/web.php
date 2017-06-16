@@ -23,4 +23,6 @@ Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclie
 Route::get('/historiqueclient', 'HistoriqueClientController@index')->name('historiquelient');
 Route::get('/listemagazine', 'ListemagazineController@index')->name('listemagazine');
 
+Route::post('ajouterPublication','PublicationController@ajouterPublication');
+
 
