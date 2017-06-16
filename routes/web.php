@@ -19,5 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/publication', 'PublicationController@index')->name('home');
-Route::get('/gestion', 'GestionController@index')->name('gestion');
-Route::get('/historique', 'HistoriqueController@index')->name('historique');
+Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
+Route::get('/historiqueclient', 'HistoriqueClientController@index')->name('historiquelient');
+Route::get('/listemagazine', 'ListemagazineController@index')->name('listemagazine');
+
+

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HistoriqueController extends Controller
+class ListemagazineController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,6 @@ class HistoriqueController extends Controller
      */
     public function index()
     {
-        return view('historique');
+        return view('listemagazine');
     }
 }

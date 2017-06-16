@@ -28,19 +28,19 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/listemagazine') }}">
+                        Liste magazines
                     </a>
 
                     <a class="navbar-brand" href="{{ url('/publication') }}">
                         | Créer publication
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/gestion') }}">
+                    <a class="navbar-brand" href="{{ url('/gestionclient') }}">
                         | Gestion compte client
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/historique') }}">
+                    <a class="navbar-brand" href="{{ url('/historiqueclient') }}">
                         | Gestion historiques clients
                     </a>
                 </div>
