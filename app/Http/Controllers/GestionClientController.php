@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class GestionClientController extends Controller
 {
@@ -23,6 +24,12 @@ class GestionClientController extends Controller
      */
     public function index()
     {
-        return view('gestionclient');
+
+        $client = DB::table('client')->get();
+        return View::make('gestionclient')->with('client', $client);
+
+        //$client = \App\client::all();
+        //return View::make('gestionclient')->with('client', $client);
+
     }
 }

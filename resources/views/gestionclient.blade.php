@@ -8,7 +8,31 @@
                     <div class="panel-heading">GESTION COMPTES CLIENTS</div>
 
                     <div class="panel-body">
-                        blablabla
+
+
+
+
+
+
+                        @foreach ($client as $patate)
+
+                            <div class ="container">
+                                <div class="row">
+                                    <div class="box">
+
+                                      {{  $patate->nom }}
+                                        {{  $patate->prenom }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            @endforeach
+
+
+
+
+
                     </div>
                 </div>
             </div>
