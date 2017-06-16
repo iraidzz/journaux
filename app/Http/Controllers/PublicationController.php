@@ -50,7 +50,6 @@ class PublicationController extends Controller
                 'photo_couverture'=>$post['photo_couverture'],
                 'description'=>$post['description'],
                 'prix_annuel'=>$post['prix_annuel'],
-                'created_at'=>date("Y:m:j H:i:s"),
             );
             $i=DB::table('publication')->insert($data);
             if($i>0)
@@ -59,6 +58,12 @@ class PublicationController extends Controller
                 return redirect('publication');
             }
         }
+    }
+
+    public function afficher()
+    {
+        $publication=Publication::paginate(3);
+        return view::make('publication')->with('publication',$publication);
     }
 
 
