@@ -31,6 +31,18 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+                    <a class="navbar-brand" href="{{ url('/publication') }}">
+                        | Créer publication
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/gestion') }}">
+                        | Gestion compte client
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/historique') }}">
+                        | Gestion historiques clients
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
