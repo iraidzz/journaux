@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class ListemagazineController extends Controller
 {
@@ -24,5 +25,11 @@ class ListemagazineController extends Controller
     public function index()
     {
         return view('listemagazine');
+    }
+
+    public function afficher()
+    {
+        $publication = DB::table('publication')->get();
+        return View::make('listemagazine')->with('publication', $publication);
     }
 }
