@@ -15,10 +15,9 @@ class CreateHistoriqueTable extends Migration
     {
         Schema::create('historique', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_client')->unsigned();
-            $table->foreign('id_client')->references('id')->on('client');
-            $table->integer('id_employe')->unsigned();
-            $table->foreign('id_employe')->references('id')->on('employe');
+            $table->integer('client_id');
+            $table->integer('employe_id');
+           /* $table->foreign('id_employe')->references('id')->on('employe');*/
            /* $table->integer('id_communication')->unsigned();
             $table->foreign('id_communication')->references('id')->on('communication');*/
             $table->string('type_communication');
@@ -29,8 +28,8 @@ class CreateHistoriqueTable extends Migration
 
         DB::table('historique')->insert(
             array(
-                'id_client' => '1',
-                'id_employe' => '2',
+                'client_id' => '1',
+                'employe_id' => '2',
                 'type_communication' => 'téléphone',
                 'date' => '2016-05-12',
                 'commentaire' => 'client relou',

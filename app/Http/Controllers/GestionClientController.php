@@ -42,6 +42,7 @@ class GestionClientController extends Controller
     {
 
         DB::table('client')->where('id','=', $id)->delete();
+
         $client = DB::table('client')->get();
         return View::make('gestionclient')->with('client', $client);
 

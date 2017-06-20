@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
+
 
 class HistoriqueClientController extends Controller
 {
@@ -21,8 +23,15 @@ class HistoriqueClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function DisplayHistorique()
     {
-        return view('historiqueclient');
+
+        //$comments = App\Post::find(1)->comments;
+        //$historique = DB::table('historique')->get();
+        $historique = \App\Historique::all();
+        var_dump($historique);
+        exit();
+        return View::make('historiqueclient')->with('historique', $historique);
+
     }
 }

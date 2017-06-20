@@ -23,12 +23,12 @@
                                     <br><br>
 
 
-                                        <div class="col-lg-1">{{  $patate-> client -> nom }}</div>
-                                        <div class="col-lg-1">{{  $patate-> employe -> nom }}</div>
-                                        <div class="col-lg-1">{{  $patate->type_communication }}</div>
-                                        <div class="col-lg-2">{{  $patate->date }}</div>
-                                        <div class="col-lg-2">{{  $patate->commentaire }}</div>
-                                        <br>
+                                    <div class="col-lg-1">{{  $patate-> client() -> nom }}</div>
+                                    <div class="col-lg-1">{{  $patate-> employe -> nom }}</div>
+                                    <div class="col-lg-1">{{  $patate->type_communication }}</div>
+                                    <div class="col-lg-2">{{  $patate->date }}</div>
+                                    <div class="col-lg-2">{{  $patate->commentaire }}</div>
+                                    <br>
 
 
                                 </div>
