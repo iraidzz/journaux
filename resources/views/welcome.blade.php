@@ -85,8 +85,8 @@
 
                 <div class="links">
                     <a href="{{ url('/publication') }}">Gestion des publications</a>
-                    <a href="{{ url('/gestion') }}">Gestion de compte</a>
-                    <a href="{{ url('/historique') }}">Gestion des historiques clients</a>
+                    <a href="{{ url('/gestionclient') }}">Gestion de compte</a>
+                    <a href="{{ url('/historiqueclient') }}">Gestion des historiques clients</a>
                 </div>
             </div>
         </div>
