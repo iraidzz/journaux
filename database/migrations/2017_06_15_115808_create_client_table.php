@@ -34,13 +34,13 @@ class CreateClientTable extends Migration
 
     DB::table('client')->insert(
         array(
-            'nom' => 'arry',
-            'prenom' => 'abittan',
-            'civilite' => 'M',
-            'email' => 'a.abittan@gmail.com',
-            'password' => 'azerty123',
-            'numero_telephone' => '0666666666',
-            'date_naissance' => '12/05/2016',
+            'nom' => 'BUR  ',
+            'prenom' => 'Loick',
+            'civilite' => 'MR',
+            'email' => 'loick.bur@gmail.com',
+            'password' => 'jesuisbeaugoss',
+            'numero_telephone' => '0628496711',
+            'date_naissance' => '09/02/1994',
             'lieu_naissance' => 'Marseille',
             'adresse_domicile' => 'Notre dame de la garde',
             'postal_domicile' => '13001',
@@ -50,17 +50,17 @@ class CreateClientTable extends Migration
 
         DB::table('client')->insert(
             array(
-                'nom' => 'bg',
-                'prenom' => 'vincent',
-                'civilite' => 'M',
-                'email' => 'b.vincent@gmail.com',
+                'nom' => 'GIRARD',
+                'prenom' => 'Vincent',
+                'civilite' => 'MR',
+                'email' => 'girvincent@gmail.com',
                 'password' => 'azerty123',
-                'numero_telephone' => '0666666666',
-                'date_naissance' => '12/05/2016',
-                'lieu_naissance' => 'Avignon',
-                'adresse_domicile' => 'grillon pas très brave',
-                'postal_domicile' => '00666',
-                'ville_domicile' => 'grillon',
+                'numero_telephone' => '0666496855',
+                'date_naissance' => '01/06/1993',
+                'lieu_naissance' => 'Carpentras',
+                'adresse_domicile' => '401B Chemin des carrieres',
+                'postal_domicile' => '84410',
+                'ville_domicile' => 'Crillon le brave',
             )
         );
     }

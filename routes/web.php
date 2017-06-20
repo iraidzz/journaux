@@ -24,7 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
 Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
 Route::post('/editclient',"GestionClientController@EditClient" );
-Route::get('/gestionclient', 'GestionClientController@index');
+Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
+Route::get('/historiqueclient', 'HistoriqueClientController@index')->name('historiquelient');
 
 /* Route magazine */
 Route::get('/publication', 'PublicationController@index')->name('home');
@@ -32,8 +33,6 @@ Route::get('/listemagazine', 'ListemagazineController@index')->name('listemagazi
 Route::post('ajouterPublication','PublicationController@ajouterPublication');
 Route::get('/listemagazine', "ListemagazineController@afficher");
 
-/* Route historique */
-Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
 
 /*

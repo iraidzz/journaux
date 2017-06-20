@@ -16,13 +16,31 @@
                 </div>
                 <div class="col-md-offset-3 col-md-6 text-center">
                     <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
+                        <input name="id" type="hidden" class="form-control" value="{{  $patate->id }}">
                         {!! csrf_field() !!}
                         <div class="row">
                             <input name="user_id" type="hidden" value="" class="form-control">
 
                             <div class="form-group col-lg-6">
                                 <label>Genre</label>
-                                <input name="civilite" type="text" class="form-control" value="{{  $patate->civilite }}">
+                                <select name="civilite" type="text" class="form-control">
+                                    <?php
+                                    if($patate->civilite=='MR')
+                                    {
+                                        ?>
+                                        <option value="MR" selected>MR</option>
+                                        <option value="MME">MME</option>
+                                        <?php
+                                    }
+                                    elseif($patate->civilite=='MME')
+                                    {
+                                        ?>
+                                        <option value="MR">MR</option>
+                                        <option value="MME" selected>MME</option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
 
                             <div class="form-group col-lg-6">
