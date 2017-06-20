@@ -15,8 +15,8 @@ class CreateAbonnementTable extends Migration
     {
         Schema::create('abonnement', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_client')->unsigned();
-            $table->foreign('id_client')->references('id')->on('client');
+            $table->integer('client_id')/* ->unsigned() */;
+            /* $table->foreign('id_client')->references('id')->on('client'); */
             $table->dateTime('date_debut');
             $table->dateTime('date_fin');
             $table->dateTime('date_pause');

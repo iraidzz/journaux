@@ -7,7 +7,7 @@
  */
 
 namespace App;
-
+use App\Historique;
 
 class Employe
 {

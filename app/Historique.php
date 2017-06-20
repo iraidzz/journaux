@@ -7,7 +7,8 @@
  */
 
 namespace App;
-
+use App\Client;
+use App\Employe;
 
 class Historique
 {
@@ -15,12 +16,12 @@ class Historique
 
     public function client()
     {
-        return $this->belongsTo('App\Client');
+        return $this->hasOne('App\Client', 'foreign_key');
     }
 
     public function employe()
     {
-        return $this->belongsTo('App\Employe');
+        return $this->hasOne('App\Employe', 'foreign_key');
     }
 
 }

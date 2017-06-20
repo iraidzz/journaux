@@ -8,6 +8,7 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\Model;
+use App\Historique;
 
 class Client extends Model
 {
