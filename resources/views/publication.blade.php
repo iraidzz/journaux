@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Prix à l'année</label>
-                                <input name="prix_annuel" type="text" class="form-control">
+                                <input name="prix_annuel" placeholder="Prix en €" type="number" class="form-control">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Nombre de parutions à l'année</label>

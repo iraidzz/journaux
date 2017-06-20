@@ -43,7 +43,7 @@
                 Liste magazines
             </a>
 
-            <a class="navbar-brand" href="{{ url('/publication') }}">
+            <a class="navbar-brand" href="{{ url('/creerpublication') }}">
                 | Créer publication
             </a>
 
