@@ -62,7 +62,7 @@ class PublicationController extends Controller
             if($i>0)
             {
                 \Session::flash('message','Publication ajoutée !');
-                return redirect('publication');
+                return redirect('listemagazine');
             }
         }
     }
