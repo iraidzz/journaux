@@ -25,14 +25,17 @@ Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
 Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
 Route::post('/editclient',"GestionClientController@EditClient" );
 Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
-Route::get('/historiqueclient', 'HistoriqueClientController@index')->name('historiquelient');
 
 /* Route magazine */
-Route::get('/publication', 'PublicationController@index')->name('home');
-Route::get('/listemagazine', 'ListemagazineController@index')->name('listemagazine');
+Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
+Route::post('/editpublication',"PublicationController@EditPublication");
+Route::get('/listemagazine', 'PublicationController@index')->name('listemagazine');
 Route::post('ajouterPublication','PublicationController@ajouterPublication');
-Route::get('/listemagazine', "ListemagazineController@afficher");
+Route::get('/listemagazine', "PublicationController@afficher");
+Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Créer publication
 
+/* Route historique */
+Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
 
 /*
