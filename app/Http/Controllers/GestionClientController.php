@@ -50,6 +50,29 @@ class GestionClientController extends Controller
 
     public function EditClient(Request $request)
     {
+
+
+        $post = $request->all();
+        DB::table('client')
+            ->where('id', $post['id'])
+            ->update(['nom' => $post['nom'],
+                'prenom' => $post['prenom'] ,
+                'civilite' => $post['civilite'] ,
+                'email' => $post['email'] ,
+                'password' => $post['password'] ,
+                'numero_telephone' => $post['numero_telephone'] ,
+                'date_naissance' => $post['date_naissance'] ,
+                'lieu_naissance' => $post['lieu_naissance'] ,
+                'adresse_domicile' => $post['adresse_domicile'] ,
+                'postal_domicile' => $post['postal_domicile'] ,
+                'ville_domicile' => $post['ville_domicile']]);
+
+        $client = DB::table('client')->get();
+        return View::make('gestionclient')->with('client', $client);
+
+
+
+/*
         $post = $request->all();
         $v=\Validator::make($request->all(),
             [
@@ -92,6 +115,7 @@ class GestionClientController extends Controller
                 return redirect('gestionclient');
             }
         }
+        */
     }
 
 
