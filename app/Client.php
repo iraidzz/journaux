@@ -14,7 +14,10 @@ class Client extends Model
 
 
 
-
+public function historique()
+{
+    return $this ->hasMany('App\Historique');
+}
 
 
 

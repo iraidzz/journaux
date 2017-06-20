@@ -18,6 +18,21 @@ class CreateCommunicationTable extends Migration
             $table->string('libelle');
 
         });
+
+
+
+
+        DB::table('communication')->insert(
+            array(
+                'libelle' => 'courrier',
+                'libelle' => 'courrier électronique',
+                'libelle' => 'téléphone',
+
+            )
+        );
+
+
+
     }
 
     /**

@@ -21,6 +21,25 @@ class CreateEmployeTable extends Migration
             $table->string('password');
 
         });
+
+        DB::table('employe')->insert(
+            array(
+                'nom' => 'employe',
+                'prenom' => 'test',
+                'email' => 'employe@gmail.com',
+                'password' => 'employe',
+            )
+        );
+
+        DB::table('employe')->insert(
+            array(
+                'nom' => 'test',
+                'prenom' => 'test',
+                'email' => 'test@gmail.com',
+                'password' => 'test',
+            )
+        );
+
     }
 
     /**
