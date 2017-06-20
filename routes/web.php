@@ -29,4 +29,17 @@ Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
 Route::post('/editclient',"GestionClientController@EditClient" );
 
 
+Route::get('/listemagazine', "ListemagazineController@afficher");
 
+
+
+/*
+TRAVAIL POUR MARDI
+
+Route::get('/EditerPublication/{id}',function ($id) {
+    $id_publication = DB::where('id',$id)->firstOrFail();
+    return View::make('modifpublication')->with('id', $id_publication);
+});
+
+
+*/

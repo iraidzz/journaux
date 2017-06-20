@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use View;
 
 class PublicationController extends Controller
 {
@@ -58,12 +59,6 @@ class PublicationController extends Controller
                 return redirect('publication');
             }
         }
-    }
-
-    public function afficher()
-    {
-        $publication=Publication::paginate(3);
-        return view::make('publication')->with('publication',$publication);
     }
 
 
