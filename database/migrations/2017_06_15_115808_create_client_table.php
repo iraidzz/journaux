@@ -18,7 +18,7 @@ class CreateClientTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('civilite');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password');
             $table->string('numero_telephone');
             $table->dateTime('date_naissance');

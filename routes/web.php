@@ -24,5 +24,9 @@ Route::get('/historiqueclient', 'HistoriqueClientController@index')->name('histo
 Route::get('/listemagazine', 'ListemagazineController@index')->name('listemagazine');
 
 Route::post('ajouterPublication','PublicationController@ajouterPublication');
+Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
+Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
+Route::post('/editclient',"GestionClientController@EditClient" );
+
 
 
