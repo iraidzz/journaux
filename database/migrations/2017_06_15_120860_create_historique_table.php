@@ -19,12 +19,26 @@ class CreateHistoriqueTable extends Migration
             $table->foreign('id_client')->references('id')->on('client');
             $table->integer('id_employe')->unsigned();
             $table->foreign('id_employe')->references('id')->on('employe');
-            $table->integer('id_communication')->unsigned();
-            $table->foreign('id_communication')->references('id')->on('communication');
+           /* $table->integer('id_communication')->unsigned();
+            $table->foreign('id_communication')->references('id')->on('communication');*/
+            $table->string('type_communication');
             $table->dateTime('date');
             $table->longText('commentaire');
 
         });
+
+        DB::table('historique')->insert(
+            array(
+                'id_client' => '1',
+                'id_employe' => '2',
+                'type_communication' => 'téléphone',
+                'date' => '2016-05-12',
+                'commentaire' => 'client relou',
+
+            )
+        );
+
+
     }
 
     /**
