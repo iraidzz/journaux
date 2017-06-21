@@ -68,6 +68,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
+                    <!--<li><a href="XXXX route('login') XXX">Connexion</a></li>-->
                     <li><a href={{action('AuthentificationController@Authentification')}}>Connexion</a></li>
                     <!-- <li><a href="{{ route('register') }}">S'enregistrer</a></li>-->
                 @else
