@@ -30,8 +30,13 @@ class PublicationController extends Controller
 
     public function afficher()
     {
+        $publication = DB::table('publication')->orderBy('id')->paginate(10);
+        return View::make('listemagazine')->with('publication', $publication);
+
+        /*
         $publication = DB::table('publication')->get();
         return View::make('listemagazine')->with('publication', $publication);
+        */
     }
 
     public function ajouterPublication(Request $request)
@@ -87,9 +92,9 @@ class PublicationController extends Controller
                 'description' => $post['description'] ,
                 'prix_annuel' => $post['prix_annuel']]);
 
-        $publication = DB::table('publication')->get();
-        return View::make('listemagazine')->with('publication', $publication);
 
+        $publication = DB::table('publication')->orderBy('id')->paginate(10);
+        return View::make('listemagazine')->with('publication', $publication);
 /*
  *
  * Ou méthode dégueulasse (mais qui marche) avec required. (Mais modif toutes les publi)

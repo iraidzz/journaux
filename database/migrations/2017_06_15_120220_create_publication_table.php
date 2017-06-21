@@ -55,6 +55,67 @@ class CreatePublicationTable extends Migration
             )
         );
 
+        DB::table('publication')->insert(
+            array(
+                'titre' => 'Overwatch: le monde à besoin de héros',
+                'nombre_numero' => '12',
+                'photo_couverture' => 'http://nsa37.casimages.com/img/2017/06/20/170620044955323053.png',
+                'description' => 'L\'histoire commece il y a un peu plus de 30 ans (ndlr : environ 2045.) Lorsqu\'Omnica Corporation révolutionna l\'industrie robotique, le monde parut sur le point d\'entrer dans un âge d\'or économique. Les énormes usines d\'Omnica, dotées de machines de construction automatisées et d\'algorithmes intelligents, furent brevetées, vendues sous le nom d\'« Omniums », et installées sur tous les continents.
+Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omniums commencèrent à tomber en panne. Des analyses indépendantes montrèrent qu\'ils ne pourraient jamais s\'approcher des promesses du fabricant en matière de croissance et de rendement. Omnica subit un audit, puis une dissolution forcée après la découverte de preuves de fraudes. Les omniums furent fermés. « peu fiable ». Néanmoins, il avait pour ambition de devenir Hokage pour être reconnu par les villageois de Konoha. Kushina le prit alors pour un rêveur avec des projets impossibles[...]',
+                'prix_annuel' => '50',
+            )
+        );
+
+        DB::table('publication')->insert(
+            array(
+                'titre' => 'Entrepreneurs de demain : pour les jeunes',
+                'nombre_numero' => '19',
+                'photo_couverture' => 'https://assets.entrepreneur.com/content/3x4/600/20160818180019-entrepreneur-magazine-september-2016.jpeg',
+                'description' => 'Entreprendre , c\'est comprendre ... Alors entreprenez, et vous comprendez[...]',
+                'prix_annuel' => '30',
+            )
+        );
+
+        DB::table('publication')->insert(
+            array(
+                'titre' => 'Entrepreneurs de demain : pour les chauves',
+                'nombre_numero' => '45',
+                'photo_couverture' => 'https://assets.entrepreneur.com/content/3x4/600/20170103171816-entjanfeb17coverRC.jpeg',
+                'description' => 'Entreprendre , c\'est comprendre ... Alors entreprenez, et vous comprendez[...]',
+                'prix_annuel' => '110',
+            )
+        );
+
+        DB::table('publication')->insert(
+            array(
+                'titre' => 'Entrepreneurs de demain : pour les hommes et femmes',
+                'nombre_numero' => '41',
+                'photo_couverture' => 'https://assets.entrepreneur.com/content/3x4/600/20161110235946-entrepreneur-magazine-december-2017.jpeg',
+                'description' => 'Entreprendre , c\'est comprendre ... Alors entreprenez, et vous comprendez[...]',
+                'prix_annuel' => '200',
+            )
+        );
+
+        // Génération données bidon
+        $i=1;
+        while($i<100)
+        {
+            $numeroPublication = random_int(1,1000);
+            $valueNumero = random_int(1,50);
+            $valuePrix = random_int(1,200);
+            $textAleatoire = chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) .  chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90));
+            DB::table('publication')->insert(
+                array(
+                    'titre' => 'Publication numéro '.$numeroPublication,
+                    'nombre_numero' => $valueNumero,
+                    'photo_couverture' => 'http://nsa37.casimages.com/img/2017/06/21/170621091842369749.png',
+                    'description' => $textAleatoire,
+                    'prix_annuel' => $valuePrix,
+                )
+            );
+            $i++;
+        }
+
     }
 
     // Ajout de données de test

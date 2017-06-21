@@ -40,13 +40,11 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label>Prix à l'année</label>
-                                    <input name="prix_annuel" type="text" disabled value="{{$article->prix_annuel}}"
-                                           class="form-control">
+                                    <input name="prix_annuel" type="text" disabled value="{{$article->prix_annuel}} €" class="form-control">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label>Nombre de parutions à l'année</label>
-                                    <input name="nombre_numero" type="text" disabled value="{{$article->nombre_numero}}"
-                                           class="form-control">
+                                    <input name="nombre_numero" type="text" disabled value="{{$article->nombre_numero}} Numéros" class="form-control">
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <center><a href="/publication/{{$article->id}}" class="btn btn-primary">Editer le publication</a></center>
@@ -59,6 +57,9 @@
                     @endforeach
                 </div>
                 <div class="clearfix"></div>
+                <ul class="pager">
+                    {{$publication->links()}}
+                </ul>
             </div>
         </div>
     </div>

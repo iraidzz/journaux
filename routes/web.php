@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PublicationController@afficher');
 
 
 /* Route client */
@@ -29,7 +29,7 @@ Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclie
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
 Route::post('/editpublication',"PublicationController@EditPublication");
-Route::get('/listemagazine', 'PublicationController@index')->name('listemagazine');
+//Route::get('/listemagazine', 'PublicationController@index')->name('listemagazine');
 Route::post('ajouterPublication','PublicationController@ajouterPublication');
 Route::get('/listemagazine', "PublicationController@afficher");
 Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Créer publication
