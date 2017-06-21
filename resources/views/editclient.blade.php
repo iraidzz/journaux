@@ -45,7 +45,7 @@
 
                             <div class="form-group col-lg-6">
                                 <label>Nom</label>
-                                <input name="nom" type="text" class="form-control" value="{{  $patate->nom }}">
+                                <input name="name" type="text" class="form-control" value="{{  $patate->name }}">
                             </div>
 
                             <div class="form-group col-lg-6">

@@ -17,9 +17,6 @@ class CreateHistoriquesTable extends Migration
             $table->increments('id');
             $table->integer('client_id');
             $table->integer('employe_id');
-            /* $table->foreign('id_employe')->references('id')->on('employe');*/
-            /* $table->integer('id_communication')->unsigned();
-             $table->foreign('id_communication')->references('id')->on('communication');*/
             $table->string('type_communication');
             $table->dateTime('date');
             $table->longText('commentaire');

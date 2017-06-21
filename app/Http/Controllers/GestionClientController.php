@@ -25,7 +25,7 @@ class GestionClientController extends Controller
     public function index()
     {
 
-        $client = DB::table('clients')->get();
+        $client = DB::table('users')->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -33,7 +33,7 @@ class GestionClientController extends Controller
     public function DisplayEditClient($id)
     {
 
-        $client = DB::table('clients')->where('id','=', $id)->get();
+        $client = DB::table('users')->where('id','=', $id)->get();
         $histo = DB::table('historiques')->where('client_id','=', $id)->get();
 
         return View::make('editclient')->with('client', $client)->with('histo',$histo);
@@ -43,9 +43,9 @@ class GestionClientController extends Controller
     public function DeleteClient($id)
     {
 
-        DB::table('clients')->where('id','=', $id)->delete();
+        DB::table('users')->where('id','=', $id)->delete();
 
-        $client = DB::table('clients')->get();
+        $client = DB::table('users')->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -56,9 +56,9 @@ class GestionClientController extends Controller
 
 
         $post = $request->all();
-        DB::table('clients')
+        DB::table('users')
             ->where('id', $post['id'])
-            ->update(['nom' => $post['nom'],
+            ->update(['name' => $post['name'],
                 'prenom' => $post['prenom'] ,
                 'civilite' => $post['civilite'] ,
                 'email' => $post['email'] ,
@@ -70,7 +70,7 @@ class GestionClientController extends Controller
                 'postal_domicile' => $post['postal_domicile'] ,
                 'ville_domicile' => $post['ville_domicile']]);
 
-        $client = DB::table('clients')->get();
+        $client = DB::table('users')->get();
         return View::make('gestionclient')->with('client', $client);
 
 

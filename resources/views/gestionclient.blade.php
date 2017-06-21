@@ -18,7 +18,7 @@
                             @foreach ($client as $patate)
                                     <div class="col-lg-1">{{  $patate->civilite }}</div>
                                     <div class="col-lg-1">{{  $patate->prenom }}</div>
-                                    <div class="col-lg-1">{{  $patate->nom }}</div>
+                                    <div class="col-lg-1">{{  $patate->name }}</div>
                                     <div class="col-lg-2">{{  $patate->email }}</div>
                                     <div class="col-lg-2">{{  $patate->numero_telephone }}</div>
                                     <div class="col-lg-1"><a href="/client/{{ $patate-> id }}"> détails</a></div>

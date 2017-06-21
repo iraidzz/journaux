@@ -20,7 +20,19 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //partie client
+            $table->string('prenom')->nullable();
+            $table->string('civilite')->nullable();
+            $table->string('numero_telephone')->nullable();
+            $table->dateTime('date_naissance')->nullable();
+            $table->string('lieu_naissance')->nullable();
+            $table->string('adresse_domicile')->nullable();
+            $table->string('postal_domicile')->nullable();
+            $table->string('ville_domicile')->nullable();
         });
+
+
 
         DB::table('users')->insert(
             array(
@@ -29,8 +41,43 @@ class CreateUsersTable extends Migration
                 'password' =>  bcrypt('employe'),
             )
         );
-        //bcrypt($data['password']
+
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'client1',
+                'email' => 'client1@gmail.com',
+                'password' =>  bcrypt('client1'),
+                'prenom' => 'Loick',
+                'civilite' => 'MR',
+                'numero_telephone' => '0628496711',
+                'date_naissance' => '09/02/1994',
+                'lieu_naissance' => 'Marseille',
+                'adresse_domicile' => 'Notre dame de la garde',
+                'postal_domicile' => '13010',
+                'ville_domicile' => 'Marseille',
+            )
+        );
+
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'client2',
+                'email' => 'client2@gmail.com',
+                'password' =>  bcrypt('client2'),
+                'prenom' => 'Vincent',
+                'civilite' => 'MR',
+                'password' => 'azerty123',
+                'numero_telephone' => '0666496855',
+                'date_naissance' => '01/06/1993',
+                'lieu_naissance' => 'Carpentras',
+                'adresse_domicile' => '401B Chemin des carrieres',
+                'postal_domicile' => '84410',
+                'ville_domicile' => 'Crillon le pas brave',
+            )
+        );
     }
+
 
     /**
      * Reverse the migrations.
