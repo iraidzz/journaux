@@ -43,7 +43,7 @@ class GestionClientController extends Controller
 
         DB::table('users')->where('id','=', $id)->delete();
 
-        $client = DB::table('users')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -68,7 +68,7 @@ class GestionClientController extends Controller
                 'postal_domicile' => $post['postal_domicile'] ,
                 'ville_domicile' => $post['ville_domicile']]);
 
-        $client = DB::table('users')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
         return View::make('gestionclient')->with('client', $client);
 
 
