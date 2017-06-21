@@ -30,11 +30,11 @@ class PublicationController extends Controller
 
     public function afficher()
     {
-        $publication = DB::table('publication')->orderBy('id')->paginate(10);
+        $publication = DB::table('publications')->orderBy('id')->paginate(10);
         return View::make('listemagazine')->with('publication', $publication);
 
         /*
-        $publication = DB::table('publication')->get();
+        $publication = DB::table('publications')->get();
         return View::make('listemagazine')->with('publication', $publication);
         */
     }
@@ -63,7 +63,7 @@ class PublicationController extends Controller
                 'description'=>$post['description'],
                 'prix_annuel'=>$post['prix_annuel'],
             );
-            $i=DB::table('publication')->insert($data);
+            $i=DB::table('publications')->insert($data);
             if($i>0)
             {
                 \Session::flash('message','Publication ajoutée !');
@@ -75,7 +75,7 @@ class PublicationController extends Controller
     public function DisplayEditPublication($id)
     {
 
-        $publication = DB::table('publication')->where('id','=', $id)->get();
+        $publication = DB::table('publications')->where('id','=', $id)->get();
         return View::make('modifpublication')->with('publication', $publication);
 
     }
@@ -84,7 +84,7 @@ class PublicationController extends Controller
     {
 
         $post = $request->all();
-        DB::table('publication')
+        DB::table('publications')
             ->where('id', $post['id'])
             ->update(['titre' => $post['titre'],
                 'nombre_numero' => $post['nombre_numero'] ,
@@ -93,7 +93,7 @@ class PublicationController extends Controller
                 'prix_annuel' => $post['prix_annuel']]);
 
 
-        $publication = DB::table('publication')->orderBy('id')->paginate(10);
+        $publication = DB::table('publications')->orderBy('id')->paginate(10);
         return View::make('listemagazine')->with('publication', $publication);
 /*
  *
@@ -122,12 +122,12 @@ class PublicationController extends Controller
                 'description'=>$post['description'],
                 'prix_annuel'=>$post['prix_annuel'],
             );
-            $i=DB::table('publication')->update($data);
+            $i=DB::table('publications')->update($data);
             if($i>0)
             {
                 \Session::flash('message','Client modifié !');
 
-                $publication = DB::table('publication')->get();
+                $publication = DB::table('publications')->get();
                 return View::make('listemagazine')->with('publication', $publication);
             }
         }

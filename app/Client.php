@@ -1,25 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loick
- * Date: 16/06/2017
- * Time: 13:55
- */
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-use App\Historique;
 
-class Client extends Model
+class client extends Model
 {
-
-
-
-public function historique()
-{
-    return $this ->hasMany('App\Historique');
-}
-
-
-
+    public function historique()
+    {
+        return $this ->hasMany('\App\historique');
+    }
 }

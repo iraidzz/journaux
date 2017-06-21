@@ -28,9 +28,9 @@ class HistoriqueClientController extends Controller
 
         //$comments = App\Post::find(1)->comments;
         //$historique = DB::table('historique')->get();
-        $historique = \App\Historique::all();
-        var_dump($historique);
-        exit();
+        $historique = \App\historique::all();
+        //var_dump($historique);
+        //exit();
         return View::make('historiqueclient')->with('historique', $historique);
 
     }

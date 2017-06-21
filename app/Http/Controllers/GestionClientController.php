@@ -25,7 +25,7 @@ class GestionClientController extends Controller
     public function index()
     {
 
-        $client = DB::table('client')->get();
+        $client = DB::table('clients')->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -33,7 +33,7 @@ class GestionClientController extends Controller
     public function DisplayEditClient($id)
     {
 
-        $client = DB::table('client')->where('id','=', $id)->get();
+        $client = DB::table('clients')->where('id','=', $id)->get();
         return View::make('editclient')->with('client', $client);
 
     }
@@ -41,9 +41,9 @@ class GestionClientController extends Controller
     public function DeleteClient($id)
     {
 
-        DB::table('client')->where('id','=', $id)->delete();
+        DB::table('clients')->where('id','=', $id)->delete();
 
-        $client = DB::table('client')->get();
+        $client = DB::table('clients')->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -54,7 +54,7 @@ class GestionClientController extends Controller
 
 
         $post = $request->all();
-        DB::table('client')
+        DB::table('clients')
             ->where('id', $post['id'])
             ->update(['nom' => $post['nom'],
                 'prenom' => $post['prenom'] ,
@@ -68,7 +68,7 @@ class GestionClientController extends Controller
                 'postal_domicile' => $post['postal_domicile'] ,
                 'ville_domicile' => $post['ville_domicile']]);
 
-        $client = DB::table('client')->get();
+        $client = DB::table('clients')->get();
         return View::make('gestionclient')->with('client', $client);
 
 
@@ -109,7 +109,7 @@ class GestionClientController extends Controller
                 'postal_domicile'=>$post['postal_domicile'],
                 'ville_domicile'=>$post['ville_domicile'],
             );
-            $i=DB::table('client')->update($data);
+            $i=DB::table('clients')->update($data);
             if($i>0)
             {
                 \Session::flash('message','Client modifié !');

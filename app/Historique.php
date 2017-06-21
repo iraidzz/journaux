@@ -1,27 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loick
- * Date: 20/06/2017
- * Time: 10:30
- */
 
 namespace App;
-use App\Client;
-use App\Employe;
 
-class Historique
+use Illuminate\Database\Eloquent\Model;
+
+
+class historique extends Model
 {
-
-
     public function client()
     {
-        return $this->hasOne('App\Client', 'foreign_key');
+        return $this->belongsTo('\App\client');
     }
 
     public function employe()
     {
-        return $this->hasOne('App\Employe', 'foreign_key');
+        return $this->belongsTo('\App\employe');
     }
-
 }
