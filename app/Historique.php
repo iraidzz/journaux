@@ -7,13 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class historique extends Model
 {
-    public function client()
+    public function user()
     {
-        return $this->belongsTo('\App\client');
+        return $this->belongsTo('\App\User');
     }
 
-    public function employe()
-    {
-        return $this->belongsTo('\App\employe');
-    }
 }

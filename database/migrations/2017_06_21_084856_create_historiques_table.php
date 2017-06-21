@@ -25,8 +25,8 @@ class CreateHistoriquesTable extends Migration
 
         DB::table('historiques')->insert(
             array(
-                'client_id' => 1,
-                'employe_id' => 2,
+                'client_id' => 2,
+                'employe_id' => 1,
                 'type_communication' => 'téléphone',
                 'date' => '2016-05-12',
                 'commentaire' => 'client relou',

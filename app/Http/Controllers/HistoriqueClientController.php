@@ -26,8 +26,6 @@ class HistoriqueClientController extends Controller
     public function DisplayHistorique()
     {
 
-        //$comments = App\Post::find(1)->comments;
-        //$historique = DB::table('historique')->get();
         $historique = \App\historique::all();
         //var_dump($historique);
         //exit();

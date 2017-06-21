@@ -67,7 +67,6 @@ class CreateUsersTable extends Migration
                 'password' =>  bcrypt('client2'),
                 'prenom' => 'Vincent',
                 'civilite' => 'MR',
-                'password' => 'azerty123',
                 'numero_telephone' => '0666496855',
                 'date_naissance' => '01/06/1993',
                 'lieu_naissance' => 'Carpentras',
