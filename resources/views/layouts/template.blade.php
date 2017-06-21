@@ -38,23 +38,23 @@
                 <span class="icon-bar"></span>
             </button>
 
-            @if (!Auth::guest())
-                <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/listemagazine') }}">
-                        Liste magazines
-                    </a>
+        @if (!Auth::guest())
+            <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/listemagazine') }}">
+                    Liste magazines
+                </a>
 
-                    <a class="navbar-brand" href="{{ url('/creerpublication') }}">
-                        | Créer publication
-                    </a>
+                <a class="navbar-brand" href="{{ url('/creerpublication') }}">
+                    | Créer publication
+                </a>
 
-                    <a class="navbar-brand" href="{{ url('/gestionclient') }}">
-                        | Gestion compte client
-                    </a>
+                <a class="navbar-brand" href="{{ url('/gestionclient') }}">
+                    | Gestion compte client
+                </a>
 
-                    <a class="navbar-brand" href="{{ url('/historiqueclient') }}">
-                        | Gestion historiques clients
-                    </a>
+                <a class="navbar-brand" href="{{ url('/historiqueclient') }}">
+                    | Gestion historiques clients
+                </a>
             @endif
         </div>
 
@@ -68,9 +68,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <!--<li><a href="XXXX route('login') XXX">Connexion</a></li>-->
-                    <li><a href={{action('AuthentificationController@Authentification')}}>Connexion</a></li>
-                    <!-- <li><a href="{{ route('register') }}">S'enregistrer</a></li>-->
+                    <li><a href="{{ route('login') }}">Connexion</a></li>
+                    <li><a href="{{ route('register') }}">S'enregistrer</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
