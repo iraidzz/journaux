@@ -24,10 +24,8 @@ class GestionClientController extends Controller
      */
     public function index()
     {
-
-        $client = DB::table('users')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
         return View::make('gestionclient')->with('client', $client);
-
     }
 
     public function DisplayEditClient($id)
