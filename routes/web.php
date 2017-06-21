@@ -19,13 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'PublicationController@afficher');
 
-/* Route connexion */
-Route::post('connexion','AuthentificationController@Authentification');
-
-/* Route Inscription */
-Route::post('createUser','CreerClientController@CreerUser');
-
-
 /* Route client */
 Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
 Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
