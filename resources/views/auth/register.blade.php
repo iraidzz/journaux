@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">S'enregistrer</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{action('CreerClientController@CreerUser')}}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -19,6 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'PublicationController@afficher');
 
+/* Route connexion */
+Route::post('connexion','AuthentificationController@Authentification');
+
+/* Route Inscription */
+Route::post('createUser','CreerClientController@CreerUser');
+
 
 /* Route client */
 Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
@@ -29,7 +35,6 @@ Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclie
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
 Route::post('/editpublication',"PublicationController@EditPublication");
-//Route::get('/listemagazine', 'PublicationController@index')->name('listemagazine');
 Route::post('ajouterPublication','PublicationController@ajouterPublication');
 Route::get('/listemagazine', "PublicationController@afficher");
 Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Créer publication

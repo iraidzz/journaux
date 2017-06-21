@@ -68,8 +68,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Connexion</a></li>
-                    <li><a href="{{ route('register') }}">S'enregistrer</a></li>
+                    <li><a href={{action('AuthentificationController@Authentification')}}>Connexion</a></li>
+                    <!-- <li><a href="{{ route('register') }}">S'enregistrer</a></li>-->
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -7,7 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Identification</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{action('AuthentificationController@Authentification')}}">
+                        <!-- <form class="form-horizontal" role="form" method="POST" action=" XXXXXX route('login')  XXXXX"> -->
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
