@@ -34,7 +34,9 @@ class GestionClientController extends Controller
     {
 
         $client = DB::table('clients')->where('id','=', $id)->get();
-        return View::make('editclient')->with('client', $client);
+        $histo = DB::table('historiques')->where('client_id','=', $id)->get();
+
+        return View::make('editclient')->with('client', $client)->with('histo',$histo);
 
     }
 

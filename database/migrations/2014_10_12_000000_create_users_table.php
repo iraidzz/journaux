@@ -26,11 +26,10 @@ class CreateUsersTable extends Migration
             array(
                 'name' => 'employe',
                 'email' => 'employe@gmail.com',
-                'password' => 'employe',
+                'password' =>  bcrypt('employe'),
             )
         );
-
-
+        //bcrypt($data['password']
     }
 
     /**
