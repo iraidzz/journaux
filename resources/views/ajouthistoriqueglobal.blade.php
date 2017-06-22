@@ -11,7 +11,7 @@
                         <hr>
                     </div>
                     <div class="col-md-offset-3 col-md-6 text-center">
-                        <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
+                        <form role="form" action="{{action('HistoriqueClientController@ajouterHistoriqueGlobal')}}" method="post">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="form-group col-lg-12">
@@ -21,7 +21,7 @@
 
                                 <div class="form-group col-lg-12">
                                     <label for="sel2">Selection multiple de clients (Maintenir Ctrl pour en sélectionner plusieurs):</label>
-                                    <select multiple class="form-control" id="client_id" name="client_id">
+                                    <select multiple class="form-control" id="client_id" name="client_id[]" size="5">
                                         @foreach ($client as $patate)
                                             <option name="idclient" value="{{ $patate->id }}">{{ $patate->prenom }}</option>
                                         @endforeach

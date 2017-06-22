@@ -38,20 +38,11 @@ Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
 /* Route historique Vincent (Global)*/
 Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique
-Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // Validation Formulaire Historique
+Route::post('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique
 
 /* Route historique Loick*/
 Route::get('/displayajouthistoriqueclient/{id}', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
 Route::post('/ajouthistoriqueclient', 'HistoriqueClientController@AjoutHistoriqueClient'); // Validation Formulaire Historique
 
-/*
-TRAVAIL POUR MARDI
 
-Route::get('/EditerPublication/{id}',function ($id) {
-    $id_publication = DB::where('id',$id)->firstOrFail();
-    return View::make('modifpublication')->with('id', $id_publication);
-});
-
-
-*/
 

@@ -13,7 +13,7 @@
                     <div class="panel-body">
 
 
-                        @foreach ($historique as $patate)
+
 
                             <div class ="container">
                                 <div class="row">
@@ -24,7 +24,7 @@
                                     <div class="col-lg-4">Commentaire</div>
 
                                     <br><br>
-
+                                    @foreach ($historique as $patate)
 
                                     <div class="col-lg-1">{{  $patate-> user -> name }} </div>
                                     <div class="col-lg-1">{{  $patate-> user_employe -> name }}</div>
@@ -32,12 +32,11 @@
                                     <div class="col-lg-2">{{  $patate->date }}</div>
                                     <div class="col-lg-4">{{  $patate->commentaire }}</div>
                                     <br>
-
+                                    @endforeach
 
                                 </div>
                             </div>
 
-                        @endforeach
 
 
                     </div>
