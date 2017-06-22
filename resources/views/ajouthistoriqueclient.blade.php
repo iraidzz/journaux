@@ -13,22 +13,31 @@
                     <hr>
                 </div>
                 <div class="col-md-offset-3 col-md-6 text-center">
-                    <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
+
+                    @foreach ($historique as $patate)
+
+                    <form role="form" action="{{action('HistoriqueClientController@AjoutHistoriqueClient')}}" method="post">
                         {!! csrf_field() !!}
                         <div class="row">
                             <div class="form-group col-lg-6">
+
+                                <input name="client_id" type="hidden" class="form-control" value="{{$patate -> id}}">
+
                                 <label>Client concerné</label>
-                                <input name="nom" type="text" class="form-control">
+                                <input name="affichage_nom_client" disabled type="text" class="form-control" value="{{$patate -> name}}">
                             </div>
+
+
+                            <input name="employe_id" type="hidden" class="form-control" value="{{ Auth::user()->id }}">
 
                             <div class="form-group col-lg-6">
                                 <label>Employé concerné</label>
-                                <input name="prenom" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
+                                <input name="affichage_nom_employe" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
                             </div>
 
                             <div class="form-group col-lg-6">
                                 <label>Moyen de communication</label>
-                                <select name="moyencommunication" type="text" class="form-control">
+                                <select name="type_communication" type="text" class="form-control">
                                     <option value="Email" selected>Email</option>
                                     <option value="Telephone">Téléphone</option>
                                     <option value="Courrier">Courrier</option>
@@ -37,12 +46,12 @@
 
                             <div class="form-group col-lg-6">
                                 <label>Date</label>
-                                <input name="password" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" >
+                                <input name="date" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" >
                             </div>
 
                             <div class="form-group col-lg-12">
                                 <label>Commentaire</label>
-                                <textarea name="numero_telephone" type="text" class="form-control"></textarea>
+                                <textarea name="commentaire" type="text" class="form-control"></textarea>
                             </div>
 
 
@@ -52,6 +61,9 @@
                             </div>
                         </div>
                     </form>
+
+                        @endforeach
+
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -38,10 +38,11 @@ Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
 /* Route historique Vincent (Global)*/
 Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique
-Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique
+Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // Validation Formulaire Historique
 
 /* Route historique Loick*/
-Route::get('/ajouthistoriqueclient/{id}', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
+Route::get('/displayajouthistoriqueclient/{id}', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
+Route::post('/ajouthistoriqueclient', 'HistoriqueClientController@AjoutHistoriqueClient'); // Validation Formulaire Historique
 
 /*
 TRAVAIL POUR MARDI

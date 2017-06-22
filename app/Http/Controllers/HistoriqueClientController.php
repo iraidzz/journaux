@@ -69,4 +69,38 @@ class HistoriqueClientController extends Controller
         return View::make('ajouthistoriqueclient')->with('historique', $historique);
     }
 
+    public function AjoutHistoriqueClient(Request $request)
+    {
+        $post = $request->all();
+        $v=\Validator::make($request->all(),
+            [
+                'client_id'=>'required',
+                'employe_id'=>'required',
+                'type_communication'=>'required',
+                'date'=>'required',
+                'commentaire'=>'required',
+            ]);
+        if($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+        else
+        {
+            $data = array(
+                'user_id'=>$post['client_id'],
+                'user_employe_id'=>$post['employe_id'],
+                'type_communication'=>$post['type_communication'],
+                'date'=>$post['date'],
+                'commentaire'=>$post['commentaire'],
+            );
+            $i=DB::table('historiques')->insert($data);
+            if($i>0)
+            {
+                return redirect('gestionclient');
+            }
+        }
+    }
+
+
+
 }
