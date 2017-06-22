@@ -16,7 +16,8 @@ class HistoriqueClientController extends Controller
     // Formulaire d'ajout d'historique au niveau global
     public function formulaireAjoutHistoriqueGlobal()
     {
-        return view('ajouthistoriqueglobal');
+        $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
+        return View::make('ajouthistoriqueglobal')->with('client', $client);
     }
 
 

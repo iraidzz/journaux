@@ -35,6 +35,7 @@ Route::get('/creerpublication', 'PublicationController@index')->name('home'); //
 /* Routes historique */
 Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
+
 /* Route historique Vincent (Global)*/
 Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique
 Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique

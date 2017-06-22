@@ -1,14 +1,12 @@
 @extends('layouts.template')
 @section('content')
-
-
         <div class="container">
             <div class="row">
                 <div class="box text-center">
                     <div class="col-lg-12 text-center">
                         <hr>
-                        <h2 class="intro-text text-center">Modifier un
-                            <strong>client</strong>
+                        <h2 class="intro-text text-center">Ajout historique
+                            <strong>global</strong>
                         </h2>
                         <hr>
                     </div>
@@ -16,14 +14,19 @@
                         <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
                             {!! csrf_field() !!}
                             <div class="row">
-                                <div class="form-group col-lg-6">
-                                    <label>Client concerné</label>
-                                    <input name="nom" type="text" class="form-control">
+                                <div class="form-group col-lg-12">
+                                    <label>Employé concerné</label>
+                                    <input name="employe" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
                                 </div>
 
-                                <div class="form-group col-lg-6">
-                                    <label>Employé concerné</label>
-                                    <input name="prenom" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
+                                <div class="form-group col-lg-12">
+                                    <label for="sel2">Selection multiple de clients (Maintenir Ctrl pour en sélectionner plusieurs):</label>
+                                    <select multiple class="form-control" id="client" name="client">
+                                        @foreach ($client as $patate)
+                                            <option>{{  $patate->prenom }}</option>
+                                            <div class="col-lg-1"></div>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="form-group col-lg-6">
@@ -37,18 +40,16 @@
 
                                 <div class="form-group col-lg-6">
                                     <label>Date</label>
-                                    <input name="password" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" >
+                                    <input name="date" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" >
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label>Commentaire</label>
-                                    <textarea name="numero_telephone" type="text" class="form-control"></textarea>
+                                    <textarea name="commentaire" type="text" class="form-control"></textarea>
                                 </div>
-
 
                                 <div class="form-group col-lg-12">
                                     <center><button type="submit" class="btn btn-default">Ajouter un historique.</button></center>
-
                                 </div>
                             </div>
                         </form>
@@ -57,5 +58,4 @@
                 </div>
             </div>
         </div>
-
 @endsection
