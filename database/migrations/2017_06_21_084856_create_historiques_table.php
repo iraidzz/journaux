@@ -15,8 +15,8 @@ class CreateHistoriquesTable extends Migration
     {
         Schema::create('historiques', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id');
-            $table->integer('employe_id');
+            $table->integer('user_id');
+            $table->string('user_employe_id');
             $table->string('type_communication');
             $table->dateTime('date');
             $table->longText('commentaire');
@@ -25,11 +25,11 @@ class CreateHistoriquesTable extends Migration
 
         DB::table('historiques')->insert(
             array(
-                'client_id' => 2,
-                'employe_id' => 1,
+                'user_id' => 2,
+                'user_employe_id' => 1,
                 'type_communication' => 'téléphone',
                 'date' => '2016-05-12',
-                'commentaire' => 'client relou',
+                'commentaire' => 'client relou, à 2 doigt de la tapé via le téléphone OMG O_O',
 
             )
         );

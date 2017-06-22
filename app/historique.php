@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class historique extends Model
 {
     public function user()
@@ -12,4 +11,8 @@ class historique extends Model
         return $this->belongsTo('\App\User');
     }
 
+    public function user_employe()
+    {
+        return $this->belongsTo('\App\User');
+    }
 }
