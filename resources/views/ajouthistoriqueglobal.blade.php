@@ -16,22 +16,21 @@
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>Employé concerné</label>
-                                    <input name="employe" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
+                                    <input name="employe_id" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <label for="sel2">Selection multiple de clients (Maintenir Ctrl pour en sélectionner plusieurs):</label>
-                                    <select multiple class="form-control" id="client" name="client">
+                                    <select multiple class="form-control" id="client_id" name="client_id">
                                         @foreach ($client as $patate)
-                                            <option>{{  $patate->prenom }}</option>
-                                            <div class="col-lg-1"></div>
+                                            <option name="idclient" value="{{ $patate->id }}">{{ $patate->prenom }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group col-lg-6">
                                     <label>Moyen de communication</label>
-                                    <select name="moyencommunication" type="text" class="form-control">
+                                    <select name="type_communication" type="text" class="form-control">
                                         <option value="Email" selected>Email</option>
                                         <option value="Telephone">Téléphone</option>
                                         <option value="Courrier">Courrier</option>
