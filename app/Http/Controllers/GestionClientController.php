@@ -32,7 +32,10 @@ class GestionClientController extends Controller
     {
 
         $client = DB::table('users')->where('id','=', $id)->get();
-        $histo = DB::table('historiques')->where('user_id','=', $id)->get();
+
+        $histo = \App\historique::all()->where('user_id', '=',$id);
+
+       // $histo = DB::table('historiques')->where('user_id','=', $id)->get();
 
         return View::make('editclient')->with('client', $client)->with('histo',$histo);
 

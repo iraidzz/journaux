@@ -110,8 +110,6 @@
         </div>
     </div>
 
-    @endforeach
-
 <div class="container">
     <div class="row">
         <div class="box text-center">
@@ -120,7 +118,35 @@
                 <hr>
                 <h2 class="intro-text text-center">Historique du client</h2>
                 <hr>
+                <a href="/ajouthistoriqueclient/{{ $patate-> id }}">Ajouter un historique</a>
 
+                <br><br>
+                    @foreach ($histo as $patate)
+
+
+                                <div class="col-lg-1">Client</div>
+                                <div class="col-lg-1">Employe</div>
+                                <div class="col-lg-2">Moyen de communication</div>
+                                <div class="col-lg-2">Date</div>
+                                <div class="col-lg-4">Commentaire</div>
+
+                                <br><br>
+
+
+                                <div class="col-lg-1">{{  $patate-> user -> name }} </div>
+                                <div class="col-lg-1">{{  $patate-> user_employe -> name }}</div>
+                                <div class="col-lg-2">{{  $patate->type_communication }}</div>
+                                <div class="col-lg-2">{{  $patate->date }}</div>
+                                <div class="col-lg-4">{{  $patate->commentaire }}</div>
+                                <br>
+
+
+
+                    @endforeach
+                @endforeach
+
+
+                </div>
             </div>
         </div>
     </div>

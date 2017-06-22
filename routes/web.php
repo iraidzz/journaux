@@ -41,7 +41,7 @@ Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjout
 Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique
 
 /* Route historique Loick*/
-
+Route::get('/ajouthistoriqueclient/{id]', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
 
 /*
 TRAVAIL POUR MARDI

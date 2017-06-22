@@ -35,4 +35,11 @@ class HistoriqueClientController extends Controller
         return View::make('historiqueclient')->with('historique', $historique);
 
     }
+
+    public function DisplayAjouterHistoriqueClient($id)
+    {
+        $historique = DB::table('users')->where('id','=', $id)->get();
+        return View::make('ajouthistoriqueclient')->with('historique', $historique);
+    }
+
 }
