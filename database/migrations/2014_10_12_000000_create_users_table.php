@@ -75,6 +75,25 @@ class CreateUsersTable extends Migration
                 'ville_domicile' => 'Crillon le pas brave',
             )
         );
+
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'clientfemelle',
+                'email' => 'client3@gmail.com',
+                'password' =>  bcrypt('clientfemelle'),
+                'prenom' => 'ole',
+                'civilite' => 'MME',
+                'numero_telephone' => '0628496711',
+                'date_naissance' => '09/02/1994',
+                'lieu_naissance' => 'Marseille',
+                'adresse_domicile' => 'Notre dame de la garde',
+                'postal_domicile' => '13010',
+                'ville_domicile' => 'Marseille',
+            )
+        );
+
+
     }
 
 

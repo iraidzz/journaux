@@ -27,10 +27,6 @@ class HistoriqueClientController extends Controller
     {
 
         $historique = \App\historique::all();
-        //$historique = DB::table('historiques')->get();
-
-        // var_dump($historique);
-        // exit();
         return View::make('historiqueclient')->with('historique', $historique);
 
     }
