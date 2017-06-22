@@ -27,8 +27,8 @@ class HistoriqueClientController extends Controller
         $post = $request->all();
         $v=\Validator::make($request->all(),
             [
-                'user_id'=>'required',
-                'user_employe_id'=>'required',
+                'client_id'=>'required',
+                'employe_id'=>'required',
                 'type_communication'=>'required',
                 'date'=>'required',
                 'commentaire'=>'required',
@@ -39,16 +39,19 @@ class HistoriqueClientController extends Controller
         }
         else
         {
+            foreach($post['client_id'] as $valeur)
+            {
+                //affichage des valeurs sélectionnées
+                $data = array(
+                    'user_id'=>$valeur,
+                    'user_employe_id'=>$post['employe_id'],
+                    'type_communication'=>$post['type_communication'],
+                    'date'=>$post['date'],
+                    'commentaire'=>$post['commentaire'],
+                );
+                $i=DB::table('historiques')->insert($data);
+            }
 
-            $data = array(
-                'user_id'=>$post['client_id'],
-                'user_employe_id'=>$post['employe_id'],
-                'type_communication'=>$post['type_communication'],
-                'date'=>$post['date'],
-                'commentaire'=>$post['commentaire'],
-            );
-
-            $i=DB::table('historiques')->insert($data);
             if($i>0)
             {
                 return redirect('gestionclient');
