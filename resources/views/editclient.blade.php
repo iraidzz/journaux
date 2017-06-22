@@ -99,7 +99,7 @@
                             <div class="form-group col-lg-12">
                                 <center><button type="submit" class="btn btn-default">Modifier le client.</button></center>
                             </br>
-                                <a href="/deleteclient/{{ $patate-> id }}"> Supprimer le client</a>
+                                <a href="/deleteclient/{{ $patate-> id }}"> <b><u>Supprimer le client</u></b></a>
                             </div>
                             <p style="color:green"><?php echo Session::get('message'); ?></p>
                         </div>
@@ -110,48 +110,33 @@
         </div>
     </div>
 
-<div class="container">
-    <div class="row">
-        <div class="box text-center">
-
+    <div class="container">
+        <div class="row">
+            <div class="box text-center">
                 <hr>
                 <h2 class="intro-text text-center">Historique du client</h2>
                 <hr>
-                <a href="/displayajouthistoriqueclient/{{ $patate-> id }}">Ajouter un historique</a>
-
+                <a href="/displayajouthistoriqueclient/{{ $patate-> id }}"><b><u>Ajouter un historique</u></b></a>
                 <br><br>
-
-
-
-                                <div class="col-lg-1">Client</div>
-                                <div class="col-lg-1">Employe</div>
-                                <div class="col-lg-2">Moyen de communication</div>
-                                <div class="col-lg-2">Date</div>
-                                <div class="col-lg-4">Commentaire</div>
-            <br>
+                <div class="col-lg-1">Client</div>
+                <div class="col-lg-1">Employe</div>
+                <div class="col-lg-2">Moyen de communication</div>
+                <div class="col-lg-2">Date</div>
+                <div class="col-lg-4">Commentaire</div>
+                <br>
                 @foreach ($histo as $patate)
-                                <br>
-
-
-                                <div class="col-lg-1">{{  $patate-> user -> name }} </div>
-                                <div class="col-lg-1">{{  $patate-> user_employe -> name }}</div>
-                                <div class="col-lg-2">{{  $patate->type_communication }}</div>
-                                <div class="col-lg-2">{{  $patate->date }}</div>
-                                <div class="col-lg-4">{{  $patate->commentaire }}</div>
-
-
-
-
-                    @endforeach
+                    <br>
+                    <div class="col-lg-1">{{  $patate-> user -> name }} </div>
+                    <div class="col-lg-1">{{  $patate-> user_employe -> name }}</div>
+                    <div class="col-lg-2">{{  $patate->type_communication }}</div>
+                    <div class="col-lg-2">{{  $patate->date }}</div>
+                    <div class="col-lg-4">{{  $patate->commentaire }}</div>
                 @endforeach
-
-
-                </div>
             </div>
         </div>
     </div>
-</div>
 
+@endforeach
 
 
 @endsection

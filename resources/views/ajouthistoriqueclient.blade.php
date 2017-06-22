@@ -7,8 +7,8 @@
             <div class="box text-center">
                 <div class="col-lg-12 text-center">
                     <hr>
-                    <h2 class="intro-text text-center">Modifier un
-                        <strong>client</strong>
+                    <h2 class="intro-text text-center">Ajout d'un
+                        <strong>historique</strong>
                     </h2>
                     <hr>
                 </div>
@@ -56,6 +56,7 @@
 
 
                             <div class="form-group col-lg-12">
+
                                 <center><button type="submit" class="btn btn-default">Ajouter un historique.</button></center>
 
                             </div>

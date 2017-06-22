@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">GESTION COMPTES CLIENTS</div>
+                <div class="panel-heading"><b>GESTION COMPTES CLIENTS</b></div>
                 <div class="panel-body">
                     <div class ="container">
                         <div class="row">
