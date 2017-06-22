@@ -14,7 +14,6 @@
                     </div>
                     <div class="col-md-offset-3 col-md-6 text-center">
                         <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
-                            <input name="id" type="hidden" class="form-control" value="{{  $patate->id }}">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <input name="user_id" type="hidden" value="" class="form-control">

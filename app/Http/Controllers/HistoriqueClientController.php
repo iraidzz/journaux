@@ -8,21 +8,25 @@ use Illuminate\Support\Facades\View;
 
 class HistoriqueClientController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Formulaire d'ajout d'historique au niveau global
+    public function formulaireAjoutHistoriqueGlobal()
+    {
+        return view('ajouthistoriqueglobal');
+    }
+
+
+    // Validation du Formulaire d'ajout d'historique au niveau global
+    public function ajouterHistoriqueGlobal()
+    {
+        // XXXXXXXXXXXX
+    }
+
+
     public function DisplayHistorique()
     {
 

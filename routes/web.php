@@ -28,12 +28,18 @@ Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclie
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
 Route::post('/editpublication',"PublicationController@EditPublication");
-Route::post('ajouterPublication','PublicationController@ajouterPublication');
+Route::post('ajouterPublication','PublicationController@ajouterPublication'); // Validation Formulaire Création publications
 Route::get('/listemagazine', "PublicationController@afficher");
-Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Créer publication
+Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Formulaire Création publications
 
-/* Route historique */
+/* Routes historique */
 Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
+
+/* Route historique Vincent (Global)*/
+Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique
+Route::get('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique
+
+/* Route historique Loick*/
 
 
 /*
