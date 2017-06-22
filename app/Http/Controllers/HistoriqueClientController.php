@@ -54,7 +54,7 @@ class HistoriqueClientController extends Controller
 
             if($i>0)
             {
-                return redirect('gestionclient');
+                return redirect('historiqueclient');
             }
         }
     }
@@ -101,7 +101,7 @@ class HistoriqueClientController extends Controller
             $i=DB::table('historiques')->insert($data);
             if($i>0)
             {
-                return redirect('gestionclient');
+                return redirect("client/".$post['client_id']);
             }
         }
     }

@@ -7,8 +7,8 @@
             <div class="box text-center">
                 <div class="col-lg-12 text-center">
                     <hr>
-                    <h2 class="intro-text text-center">Modifier un
-                        <strong>client</strong>
+                    <h2 class="intro-text text-center">Ajouter un historique
+                        <strong>global</strong>
                     </h2>
                     <hr>
                 </div>
@@ -16,6 +16,11 @@
                     <form role="form" id="test" action="{{action('HistoriqueClientController@ajouterHistoriqueGlobal')}}" method="post">
                         {!! csrf_field() !!}
                         <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label>Employé concerné</label>
+                                <input name="affichage_nom_employe" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
+                            </div>
+
                             <div class="form-group col-lg-12">
                                 <label for="sel2">Selection multiple de clients (Maintenir Ctrl pour en sélectionner plusieurs):</label>
                                 <select multiple class="form-control" name="client_id[]" size="5">
@@ -26,10 +31,7 @@
                             </div>
                             <input name="employe_id" type="hidden" class="form-control" value="{{ Auth::user()->id }}">
 
-                            <div class="form-group col-lg-6">
-                                <label>Employé concerné</label>
-                                <input name="affichage_nom_employe" disabled type="text" class="form-control" value="{{ Auth::user()->name }}">
-                            </div>
+
 
                             <div class="form-group col-lg-6">
                                 <label>Moyen de communication</label>
