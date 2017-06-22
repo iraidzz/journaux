@@ -24,13 +24,11 @@ class HistoriqueClientController extends Controller
     // Validation du Formulaire d'ajout d'historique au niveau global
     public function ajouterHistoriqueGlobal(Request $request)
     {
-
-
         $post = $request->all();
         $v=\Validator::make($request->all(),
             [
-                'employe_id'=>'required',
-                'client_id'=>'required',
+                'user_id'=>'required',
+                'user_employe_id'=>'required',
                 'type_communication'=>'required',
                 'date'=>'required',
                 'commentaire'=>'required',
@@ -41,17 +39,19 @@ class HistoriqueClientController extends Controller
         }
         else
         {
+
             $data = array(
-                'employe_id'=>$post['employe_id'],
-                'client_id'=>$post['client_id'],
+                'user_id'=>$post['client_id'],
+                'user_employe_id'=>$post['employe_id'],
                 'type_communication'=>$post['type_communication'],
                 'date'=>$post['date'],
                 'commentaire'=>$post['commentaire'],
             );
+
             $i=DB::table('historiques')->insert($data);
             if($i>0)
             {
-                return redirect('/gestionclient');
+                return redirect('gestionclient');
             }
         }
     }
