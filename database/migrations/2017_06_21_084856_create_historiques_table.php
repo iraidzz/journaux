@@ -27,12 +27,47 @@ class CreateHistoriquesTable extends Migration
             array(
                 'user_id' => 2,
                 'user_employe_id' => 1,
-                'type_communication' => 'téléphone',
-                'date' => '2016-05-12',
-                'commentaire' => 'client relou, à 2 doigt de la tapé via le téléphone OMG O_O',
+                'type_communication' => 'Téléphone',
+                'date' => '2017-01-01',
+                'commentaire' => 'Enregistrement test 1',
 
             )
         );
+
+        DB::table('historiques')->insert(
+            array(
+                'user_id' => 3,
+                'user_employe_id' => 5,
+                'type_communication' => 'Courrier',
+                'date' => '2016-08-12',
+                'commentaire' => 'Enregistrement test 2',
+
+            )
+        );
+
+
+        DB::table('historiques')->insert(
+            array(
+                'user_id' => 4,
+                'user_employe_id' => 1,
+                'type_communication' => 'téléphone',
+                'date' => '2016-05-12',
+                'commentaire' => 'Enregistrement test 3',
+
+            )
+        );
+
+        DB::table('historiques')->insert(
+            array(
+                'user_id' => 2,
+                'user_employe_id' => 5,
+                'type_communication' => 'Email',
+                'date' => '2016-06-12',
+                'commentaire' => 'Enregistrement test 4',
+
+            )
+        );
+
     }
 
     /**

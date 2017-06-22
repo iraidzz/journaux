@@ -79,10 +79,10 @@ class CreateUsersTable extends Migration
 
         DB::table('users')->insert(
             array(
-                'name' => 'clientfemelle',
+                'name' => 'client3',
                 'email' => 'client3@gmail.com',
                 'password' =>  bcrypt('clientfemelle'),
-                'prenom' => 'ole',
+                'prenom' => 'client3',
                 'civilite' => 'MME',
                 'numero_telephone' => '0628496711',
                 'date_naissance' => '09/02/1994',
@@ -93,6 +93,13 @@ class CreateUsersTable extends Migration
             )
         );
 
+        DB::table('users')->insert(
+            array(
+                'name' => 'employe2',
+                'email' => 'employe2@gmail.com',
+                'password' =>  bcrypt('employe2'),
+            )
+        );
 
     }
 
