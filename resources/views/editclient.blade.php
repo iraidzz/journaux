@@ -113,7 +113,6 @@
 <div class="container">
     <div class="row">
         <div class="box text-center">
-            <div class="col-lg-12 text-center">
 
                 <hr>
                 <h2 class="intro-text text-center">Historique du client</h2>
