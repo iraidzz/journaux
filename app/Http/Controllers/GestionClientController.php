@@ -63,7 +63,7 @@ class GestionClientController extends Controller
                 'prenom' => $post['prenom'] ,
                 'civilite' => $post['civilite'] ,
                 'email' => $post['email'] ,
-                'password' => $post['password'] ,
+                'password' => bcrypt($post['password']) ,
                 'numero_telephone' => $post['numero_telephone'] ,
                 'date_naissance' => $post['date_naissance'] ,
                 'lieu_naissance' => $post['lieu_naissance'] ,
@@ -74,54 +74,13 @@ class GestionClientController extends Controller
         $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
         return View::make('gestionclient')->with('client', $client);
 
-
-
-/*
-        $post = $request->all();
-        $v=\Validator::make($request->all(),
-            [
-                'civilite'=>'required',
-                'nom'=>'required',
-                'prenom'=>'required',
-                'email'=>'required',
-                'password'=>'required',
-                'numero_telephone'=>'required',
-                'date_naissance'=>'required',
-                'lieu_naissance'=>'required',
-                'adresse_domicile'=>'required',
-                'postal_domicile'=>'required',
-                'ville_domicile'=>'required',
-
-            ]);
-        if($v->fails())
-        {
-            return redirect()->back()->withErrors($v->errors());
-        }
-        else
-        {
-            $data = array(
-                'civilite'=>$post['civilite'],
-                'nom'=>$post['nom'],
-                'prenom'=>$post['prenom'],
-                'email'=>$post['email'],
-                'password'=>$post['password'],
-                'numero_telephone'=>$post['numero_telephone'],
-                'date_naissance'=>$post['date_naissance'],
-                'lieu_naissance'=>$post['lieu_naissance'],
-                'adresse_domicile'=>$post['adresse_domicile'],
-                'postal_domicile'=>$post['postal_domicile'],
-                'ville_domicile'=>$post['ville_domicile'],
-            );
-            $i=DB::table('clients')->update($data);
-            if($i>0)
-            {
-                \Session::flash('message','Client modifié !');
-                return redirect('gestionclient');
-            }
-        }
-        */
     }
 
+
+    public function FiltreClient(Request $request)
+    {
+
+    }
 
 
 

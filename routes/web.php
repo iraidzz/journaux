@@ -24,6 +24,7 @@ Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
 Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
 Route::post('/editclient',"GestionClientController@EditClient" );
 Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
+Route::get('/gestionclient', 'GestionClientController@FiltreClient');
 
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
@@ -34,7 +35,6 @@ Route::get('/creerpublication', 'PublicationController@index')->name('home'); //
 
 /* Routes historique */
 Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
-
 
 /* Route historique Vincent (Global)*/
 Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique

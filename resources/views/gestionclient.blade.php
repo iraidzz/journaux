@@ -7,6 +7,15 @@
                 <div class="panel-heading"><b>GESTION COMPTES CLIENTS</b></div>
                 <div class="panel-body">
                     <div class ="container">
+
+                        <form role="form" action="{{action('GestionClientController@FiltreClient')}}" method="post">
+                            <label>Filtre sur prénom</label>
+                            <input name="id" type="text" class="form-control">
+                            <label>Filtre sur nom</label>
+                            <input name="id" type="text" class="form-control">
+
+                            {!! csrf_field() !!}
+                        </form>
                         <div class="row">
                             <div class="col-lg-1"><b>Genre</b></div>
                             <div class="col-lg-1"><b>Prénom</b></div>
