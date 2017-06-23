@@ -108,7 +108,7 @@ Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omnium
                 array(
                     'titre' => 'Publication numéro '.$numeroPublication,
                     'nombre_numero' => $valueNumero,
-                    'photo_couverture' => 'http://nsa37.casimages.com/img/2017/06/21/170621091842369749.png',
+                    'photo_couverture' => $this->getBase64FromPath('http://nsa37.casimages.com/img/2017/06/21/170621091842369749.png'),
                     'description' => $textAleatoire,
                     'prix_annuel' => $valuePrix,
                 )
@@ -125,5 +125,13 @@ Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omnium
     public function down()
     {
         Schema::dropIfExists('publications');
+    }
+
+    private function getBase64FromPath($img) {
+        $image = 'C:\laragon\www\journaux\public\uploads\\'.$img;
+        $type = pathinfo($image, PATHINFO_EXTENSION);
+        $data = file_get_contents($image);
+        $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $dataUri;
     }
 }
