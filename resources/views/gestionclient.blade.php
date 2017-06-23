@@ -25,12 +25,12 @@
                         </div>
                     </div>
                     <div class="col-lg-12 text-center">
-                        <div class="col-lg-1"><b>Genre</b></div>
-                        <div class="col-lg-1"><b>Prénom</b></div>
-                        <div class="col-lg-1"><b>Nom</b></div>
-                        <div class="col-lg-2"><b>Email</b></div>
-                        <div class="col-lg-2"><b>Numero de téléphone</b></div>
-                        <div class="col-lg-1"><b>Action</b></div>
+                        <div class="col-lg-1"><b><u>Genre</u></b></div>
+                        <div class="col-lg-1"><b><u>Prénom</u></b></div>
+                        <div class="col-lg-1"><b><u>Nom</u></b></div>
+                        <div class="col-lg-2"><b><u>Email</u></b></div>
+                        <div class="col-lg-2"><b><u>Numero de téléphone</u></b></div>
+                        <div class="col-lg-1"><b><u>Action</u></b></div>
                         <br><br>
                         @foreach ($client as $patate)
                                 <div class="col-lg-1">{{  $patate->civilite }}</div>
