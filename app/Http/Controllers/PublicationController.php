@@ -145,8 +145,7 @@ class PublicationController extends Controller
                     'prix_annuel' => $post['prix_annuel']]);
         }
 
-        $publication = DB::table('publications')->orderBy('id')->paginate(10);
-        return View::make('listemagazine')->with('publication', $publication);
+        return redirect('/listemagazine');
     }
 
 
