@@ -2,8 +2,6 @@
 @section('content')
 
 @foreach ($client as $patate)
-
-
     <div class="container">
         <div class="row">
             <div class="box text-center">
@@ -63,7 +61,6 @@
                                 <input name="password" type="password" class="form-control" value="{{  $patate->password }}">
                             </div>
 
-
                             <div class="form-group col-lg-6">
                                 <label>Numero de téléphone</label>
                                 <input name="numero_telephone" type="text" class="form-control" value="{{  $patate->numero_telephone }}">
@@ -108,35 +105,51 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
         <div class="row">
             <div class="box text-center">
                 <hr>
-                <h2 class="intro-text text-center">Historique du client</h2>
+                <h2 class="intro-text text-center">Historique du
+                    <strong>client</strong></h2>
                 <hr>
                 <a href="/displayajouthistoriqueclient/{{ $patate-> id }}"><b><u>Ajouter un historique</u></b></a>
                 <br><br>
-                <div class="col-lg-1">Client</div>
-                <div class="col-lg-1">Employe</div>
-                <div class="col-lg-2">Moyen de communication</div>
-                <div class="col-lg-2">Date</div>
-                <div class="col-lg-4">Commentaire</div>
+                <div class="col-lg-2"><b>Client</b></div>
+                <div class="col-lg-2"><b>Employe</b></div>
+                <div class="col-lg-2"><b>Moyen de communication</b></div>
+                <div class="col-lg-2"><b>Date</b></div>
+                <div class="col-lg-4"><b>Commentaire</b></div>
                 <br>
                 @foreach ($histo as $patate)
                     <br>
-                    <div class="col-lg-1">{{  $patate-> user -> name }} </div>
-                    <div class="col-lg-1">{{  $patate-> user_employe -> name }}</div>
+                    <div class="col-lg-2">{{  $patate-> user -> name }} </div>
+                    <div class="col-lg-2">{{  $patate-> user_employe -> name }}</div>
                     <div class="col-lg-2">{{  $patate->type_communication }}</div>
                     <div class="col-lg-2">{{  $patate->date }}</div>
                     <div class="col-lg-4">{{  $patate->commentaire }}</div>
                 @endforeach
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <hr>
+                <h2 class="intro-text text-center">Abonnements en cour du
+                    <strong>client</strong>
+                </h2>
+                <hr>
+            </div>
+            <div class="col-md-offset-3 col-md-6 text-center">
+            <div class="box text-center">
+                <div class="col-lg-4"><b>Magazine</b></div>
+                <div class="col-lg-4"><b>Date abonnement</b></div>
+                <div class="col-lg-4"><b>Action</b></div>
+                <br>
+                <br>
+                <div class="col-lg-4">XXXXXXXXXXXXX</div>
+                <div class="col-lg-4">XXXXXXXXXXXXX</div>
+                <div class="col-lg-4"><a href="XXXXXXXXXXXXX"><b><u>Supprimer</u></b></a></div>
+            </div>
+        </div>
+        <BR>
     </div>
-
 @endforeach
-
-
 @endsection
