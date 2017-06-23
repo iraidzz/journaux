@@ -14,11 +14,24 @@
     <div class="container">
         <div class="row">
             <div class="box">
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
                     <hr>
                     <h2 class="intro-text text-center">Liste des
                         <strong>magazines</strong>
                     </h2>
+                    <div class="col-md-offset-3 col-md-6 text-center">
+                        <form role="form" action="XXXXX" method="post">
+                            {!! csrf_field() !!}
+                            <div class="row">
+                                <div class="form-group col-lg-8">
+                                    <input placeholder="Rechercher un magazine" name="titre" type="text"  value="" class="form-control">
+                                </div>
+                                <div class="form-group col-lg-1">
+                                    <center><button type="submit" class="btn btn-warning">Rechercher</button></center>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-lg-12 text-center">
                     @foreach($publication as $article)
