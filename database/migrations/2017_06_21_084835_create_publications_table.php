@@ -98,7 +98,7 @@ Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omnium
 
         // Génération données bidon
         $i=1;
-        while($i<100)
+        while($i<20)
         {
             $numeroPublication = random_int(1,1000);
             $valueNumero = random_int(1,50);

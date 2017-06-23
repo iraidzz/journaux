@@ -23,8 +23,8 @@
                                 <input name="titre" type="text" value="{{$value->titre}}" class="form-control">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Image de l'article (URL Internet)</label>
-                                <input name="photo_couverture" type="text" value="{{$value->photo_couverture}}" class="form-control">
+                                <label>Image de l'article </label>
+                                {!! Form::file('photo') !!}
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
