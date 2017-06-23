@@ -65,7 +65,7 @@ class PublicationController extends Controller
 
     public function ajouterPublication(Request $request)
     {
-        
+
         $dataUri = '';
         if (Input::file('photo') != null) {
             $image = Input::file('photo');
@@ -115,24 +115,35 @@ class PublicationController extends Controller
     {
 
         $dataUri = '';
-        if (Input::file('photo') != null) {
+        if (Input::file('photo') != null)
+        {
             $image = Input::file('photo');
             $type = pathinfo($image, PATHINFO_EXTENSION);
             $data = file_get_contents($image);
             $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
         }
-
-
-        $post = $request->all();
-        DB::table('publications')
-            ->where('id', $post['id'])
-            ->update(['titre' => $post['titre'],
-                'nombre_numero' => $post['nombre_numero'],
-                'photo_couverture' => $dataUri,
-                'description' => $post['description'],
-                'prix_annuel' => $post['prix_annuel']]);
-
+        if ($dataUri=='')
+        {
+            $post = $request->all();
+            DB::table('publications')
+                ->where('id', $post['id'])
+                ->update(['titre' => $post['titre'],
+                    'nombre_numero' => $post['nombre_numero'],
+                    'description' => $post['description'],
+                    'prix_annuel' => $post['prix_annuel']]);
+        }
+        else
+        {
+            $post = $request->all();
+            DB::table('publications')
+                ->where('id', $post['id'])
+                ->update(['titre' => $post['titre'],
+                    'nombre_numero' => $post['nombre_numero'],
+                    'photo_couverture' => $dataUri,
+                    'description' => $post['description'],
+                    'prix_annuel' => $post['prix_annuel']]);
+        }
 
         $publication = DB::table('publications')->orderBy('id')->paginate(10);
         return View::make('listemagazine')->with('publication', $publication);

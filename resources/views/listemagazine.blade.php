@@ -16,7 +16,7 @@
             <div class="box">
                 <div class="col-lg-12 text-center">
                     <hr>
-                    <h2 class="intro-text text-center">Liste des
+                    <h2 class="intro-text text-center" style=" margin-bottom: 20px; ">Liste des
                         <strong>magazines</strong>
                     </h2>
                     <div class="col-md-offset-3 col-md-6 text-center">
@@ -37,6 +37,9 @@
                     </div>
                 </div>
                 <div class="col-lg-12 text-center">
+                    <ul class="pager" style="margin-top: 0px;margin-bottom: 0px;height: 50px;">
+                        {{$publication->links()}}
+                    </ul>
                     @foreach($publication as $article)
                         <hr class="hr-primary" /><br><br>
                         <div class="row">
