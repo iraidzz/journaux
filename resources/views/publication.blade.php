@@ -19,14 +19,10 @@
                                 <label>Titre publication</label>
                                 <input name="titre" type="text" class="form-control">
                             </div>
-
-
                             <div class="form-group col-lg-6">
                                 <label>Image de l'article </label>
                                 {!! Form::file('photo') !!}
                             </div>
-
-
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Texte publication</label>
