@@ -41,13 +41,9 @@
                         <hr class="hr-primary" /><br><br>
                         <div class="row">
                             <div class="col-lg-8">
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-12">
                                     <label>Titre publication</label>
                                     <input name="titre" type="text" disabled value="{{$article->titre}}" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label>Image de l'article (URL Internet)</label>
-                                    <input name="photo_couverture" type="text" disabled value="{{$article->photo_couverture}}" class="form-control">
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="form-group col-lg-12">
