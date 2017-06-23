@@ -10,10 +10,14 @@
 
                         <form role="form" action="{{action('GestionClientController@FiltreClient')}}" method="post">
                             <label>Filtre sur nom</label>
-                            <input name="nom" type="text" class="form-control">
+                            <div class="col-lg-1">
+                            <input name="name" type="text" class="form-control">
+                            </div>
                             {!! csrf_field() !!}
-                        </form>
+                            <center><button type="submit" class="btn btn-default">Filtre.</button></center>
 
+                        </form>
+<br>
                         <div class="row">
                             <div class="col-lg-1"><b>Genre</b></div>
                             <div class="col-lg-1"><b>Prénom</b></div>
