@@ -20,14 +20,17 @@
                         <strong>magazines</strong>
                     </h2>
                     <div class="col-md-offset-3 col-md-6 text-center">
-                        <form role="form" action="XXXXX" method="post">
+                        <form role="form" action="{{action('PublicationController@FiltreMagazine')}}" method="post">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="form-group col-lg-8">
-                                    <input placeholder="Rechercher un magazine" name="titre" type="text"  value="" class="form-control">
+                                    <input placeholder="Rechercher un magazine" name="titre" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <button type="submit" class="btn btn-warning">Rechercher</button>
                                 </div>
                                 <div class="form-group col-lg-1">
-                                    <center><button type="submit" class="btn btn-warning">Rechercher</button></center>
+                                    <a href="{{ url('/listemagazine') }}" class="btn btn-info">Retour</a>
                                 </div>
                             </div>
                         </form>

@@ -80,10 +80,17 @@ class GestionClientController extends Controller
     public function FiltreClient(Request $request)
     {
         $post = $request->all();
-        $client = DB::table('users')->where('name','=',[$post['name']]);
-        return View::make('gestionclient')->with('client', $client);
+        $laValeurRecherchee = $post['name'];
+
+        if($laValeurRecherchee=='')
+        {
+            $client = DB::table('users')->orderBy('id')->where('prenom','!=', '')->get();
+            return View::make('gestionclient')->with('client', $client);
+        }
+        else
+        {
+            $client = DB::table('users')->where('name','=', $laValeurRecherchee)->get();
+            return View::make('gestionclient')->with('client', $client);
+        }
     }
-
-
-
 }

@@ -39,6 +39,29 @@ class PublicationController extends Controller
         */
     }
 
+    public function FiltreMagazine(Request $request)
+    {
+        $post = $request->all();
+        $laValeurRecherchee = $post['titre'];
+
+        if($laValeurRecherchee=='')
+        {
+            $publication = DB::table('publications')->orderBy('id')->paginate(10);
+            return View::make('listemagazine')->with('publication', $publication);
+        }
+        else
+        {
+            $publication = DB::table('publications')->where('titre','=', $laValeurRecherchee)->paginate(10);
+            return View::make('listemagazine')->with('publication', $publication);
+        }
+
+
+        /*
+        $publication = DB::table('publications')->get();
+        return View::make('listemagazine')->with('publication', $publication);
+        */
+    }
+
     public function ajouterPublication(Request $request)
     {
         $post = $request->all();

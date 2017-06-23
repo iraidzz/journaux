@@ -24,7 +24,7 @@ Route::get('/client/{id}',"GestionClientController@DisplayEditClient" );
 Route::get('/deleteclient/{id}',"GestionClientController@DeleteClient" );
 Route::post('/editclient',"GestionClientController@EditClient" );
 Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
-Route::post('/gestionclient', 'GestionClientController@FiltreClient');
+Route::post('/gestionclient', 'GestionClientController@FiltreClient'); // Rechercher un client
 
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
@@ -32,13 +32,14 @@ Route::post('/editpublication',"PublicationController@EditPublication");
 Route::post('ajouterPublication','PublicationController@ajouterPublication'); // Validation Formulaire Création publications
 Route::get('/listemagazine', "PublicationController@afficher");
 Route::get('/creerpublication', 'PublicationController@index')->name('home'); // Formulaire Création publications
+Route::post('/listemagazine', 'PublicationController@FiltreMagazine');
 
 /* Routes historique */
 Route::get('/historiqueclient', 'HistoriqueClientController@DisplayHistorique');
 
 /* Route historique Vincent (Global)*/
 Route::get('/creerhistoriqueglobal', 'HistoriqueClientController@formulaireAjoutHistoriqueGlobal'); // Formulaire Création Historique
-Route::post('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // alidation Formulaire Historique
+Route::post('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistoriqueGlobal'); // Validation Formulaire Historique
 
 /* Route historique Loick*/
 Route::get('/displayajouthistoriqueclient/{id}', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
