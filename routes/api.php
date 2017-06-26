@@ -13,11 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
+// **************** --- REGLES DE NOMMAGE --- **************//
+// ***  Route::XXXX('/YYYY/ZZZZ','contoller@fonction"); *** //
+// *** XXXX = get / post                                    //
+// *** YYYY = entitée concernée (magazine, client , ...) ** //
+// *** ZZZZ = verbe à l'infinitif (ER)                      //
+// ******************************************************** //
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
 /* Route magazine */
-Route::get('/listemagazine',"APIMagazineController@lister" );
+Route::get('/magazine/lister',"APIMagazineController@lister" );
+
+Route::get('/magazine/detail',"APIMagazineController@detail" );
+
+/* Route authentification*/
+
+Route::post('/client/authentifier',"APIClientController@authentifier" );
+
+Route::post('/client/enregistrer',"APIClientController@enregistrer" );
 

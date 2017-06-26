@@ -8,55 +8,51 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
 
-use App\publication;
-
-class APIMagazineController
+class APIMagazineController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    /*
     public function __construct()
     {
         $this->middleware('auth');
     }
+    */
 
-    public function index()
+    public function lister()
     {
-        return view('publication');
-    }
-
-    public function lister(Request $request)
-    {
-        $pubs = publications::All();
+        $publications = DB::table('publications')->get();
         return response()->json(array(
             'error' => false,
-            'result' => $pubs,
+            'result' => $publications,
             'status_code' => 200
         ));
 
     }
 
-//    public function detail(Request $request)
-//    {
-//        $input = $request->all();
-//        $pubs = Publication::where('id', $input['id'])->get();
-//
-//        $est_abonnee = false;
-//        if (array_key_exists('token', $input)) {
-//            $user = JWTAuth::toUser($input['token']);
-//            $abo = AbonnementServices::getAbonnement($input['id'], $user->id);
-//            if ($abo) {
-//                $est_abonnee = true;
-//            }
-//        }
-//        return response()->json(array(
-//            'error' => false,
-//            'result' => $pubs,
-//            'user_est_abonnee' => $est_abonnee,
-//            'status_code' => 200
-//        ));
-//    }
+    public function detail(Request $request)
+    {
+        $input = $request->all();
+        $publications = DB::table('publications')->where('id', $input['id'])->get();
+
+        /*
+        $est_abonnee = false;
+        if (array_key_exists('token', $input))
+        {
+            $user = JWTAuth::toUser($input['token']);
+            $abo = AbonnementServices::getAbonnement($input['id'], $user->id);
+            if ($abo) {
+                $est_abonnee = true;
+            }
+        }
+        */
+        return response()->json(array(
+            'error' => false,
+            'result' => $publications,
+            'status_code' => 200
+        ));
+    }
 }

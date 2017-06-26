@@ -123,6 +123,7 @@ class PublicationController extends Controller
             $dataUri = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
         }
+        // Si l'employé ne met pas de photos, on garde la photo déjà présente dans la base de données
         if ($dataUri=='')
         {
             $post = $request->all();
