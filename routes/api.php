@@ -36,3 +36,4 @@ Route::post('/client/authentifier',"APIClientController@authentifier" );
 
 Route::post('/client/enregistrer',"APIClientController@enregistrer" );
 
+
