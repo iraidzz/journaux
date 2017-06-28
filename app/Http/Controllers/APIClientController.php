@@ -47,13 +47,13 @@ class APIClientController extends Controller
                 'email' => $mobilUser['email'],
                 'password' => bcrypt($mobilUser['password']),
                 'prenom' => $mobilUser['prenom'],
-                'adresse_domicile' => $mobilUser['adresse_domicile'],
-                'ville_domicile' => $mobilUser['ville_domicile'],
-                'postal_domicile' => $mobilUser['postal_domicile'],
+                'civilite' => $mobilUser['civilite'],
                 'numero_telephone' => $mobilUser['numero_telephone'],
                 'date_naissance' => $mobilUser['date_naissance'],
                 'lieu_naissance' => $mobilUser['lieu_naissance'],
-                'civilite' => "MR",
+                'adresse_domicile' => $mobilUser['adresse_domicile'],
+                'postal_domicile' => $mobilUser['postal_domicile'],
+                'ville_domicile' => $mobilUser['ville_domicile'],
             ])['id'];
 
             return response()->json(array(
