@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 
@@ -23,9 +24,23 @@ class APIClientController extends Controller
     }
     */
 
-    public function authentifier(Request $request)
+    public function authentifier()
     {
-        //XXXXXX
+        $usersdata = DB::table('users')->where('email','=', request('user')['email'])->get();
+        if(Auth::attempt(['email' => request('user')['email'], 'password' => request('user')['password']]))
+        {
+            return response()->json(array(
+                'error' => false,
+                'status_code' => 200,
+                'result' => $usersdata
+                )
+            );
+        }else
+        {
+            return response()->json(array(
+                'error' => true,
+                'status_code' => 401));
+        }
     }
 
     public function enregistrer()
