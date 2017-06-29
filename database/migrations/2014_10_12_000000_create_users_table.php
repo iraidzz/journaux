@@ -18,8 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+
 
             //partie client
             $table->string('prenom')->nullable();
@@ -30,6 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('adresse_domicile')->nullable();
             $table->string('postal_domicile')->nullable();
             $table->string('ville_domicile')->nullable();
+
+            $table->rememberToken();
+            $table->timestamps();
         });
 
 
