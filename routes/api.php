@@ -43,7 +43,7 @@ Route::post('/client/edit',"APIClientController@EditCompte" );
 
 /* Route abonnement*/
 
-Route::get('/client/mesabonnements',"APIClientController@mesabonnements" );
+Route::get('/client/mesabonnements/{id}',"APIClientController@mesabonnements" );
 
 Route::post('/client/sabonner',"APIClientController@sabonner" );
 

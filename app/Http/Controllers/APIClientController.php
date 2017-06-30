@@ -23,10 +23,10 @@ class APIClientController extends Controller
         $this->middleware('auth');
     }
     */
-    public function mesabonnements()
+    public function mesabonnements($id)
     {
 
-        $mesabonnements = DB::table('abonnements')->get();
+        $mesabonnements = DB::table('abonnements')->where('id_client','=',$id)->get();
         return response()->json(array(
             'error' => false,
             'result' => $mesabonnements,
