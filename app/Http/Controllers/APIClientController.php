@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\abonnement;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -26,13 +27,14 @@ class APIClientController extends Controller
     public function mesabonnements($id)
     {
 
-        $mesabonnements = DB::table('abonnements')->where('client_id','=',$id)->get();
+        $mesabonnements = DB::table('abonnements')->where('client_id', '=', $id)->get();
         return response()->json(array(
             'error' => false,
             'result' => $mesabonnements,
             'status_code' => 200
         ));
     }
+
     // On récupère les informations magazine pour lesquels le client s'est abonné
     public function lister()
     {
@@ -50,7 +52,7 @@ class APIClientController extends Controller
     {
         // ----- C'EST ICI QUE DOIT SE PASSER L'INSERTION DU NOUVEL ABONNEMENT DANS LA BDD -----//
 
-        $sabonner = request('sabo');
+        $sabonner = request()->all();
 
         //dd($sabonner);
         $data = array(
@@ -58,7 +60,7 @@ class APIClientController extends Controller
             'publication_id' => $sabonner['publication_id'],
             'date_debut' => $sabonner['date_debut'],
             'date_fin' => $sabonner['date_fin'],
-            'date_pause' => '0000-00-00',
+            'date_pause' => $sabonner['date_pause'],
         );
         //dd($data);
         DB::table('abonnements')->insert($data);
@@ -66,17 +68,15 @@ class APIClientController extends Controller
 
     public function authentifier()
     {
-        $usersdata = DB::table('users')->where('email','=', request('user')['email'])->get();
-        if(Auth::attempt(['email' => request('user')['email'], 'password' => request('user')['password']]))
-        {
+        $usersdata = DB::table('users')->where('email', '=', request('user')['email'])->get();
+        if (Auth::attempt(['email' => request('user')['email'], 'password' => request('user')['password']])) {
             return response()->json(array(
-                'error' => false,
-                'status_code' => 200,
-                'result' => $usersdata
+                    'error' => false,
+                    'status_code' => 200,
+                    'result' => $usersdata
                 )
             );
-        }else
-        {
+        } else {
             return response()->json(array(
                 'error' => true,
                 'status_code' => 401));
@@ -120,7 +120,7 @@ class APIClientController extends Controller
 
     public function Display($id)
     {
-        $compteinfo = DB::table('users')->where('id' ,'=',$id)->get();
+        $compteinfo = DB::table('users')->where('id', '=', $id)->get();
         return response()->json(array(
             'error' => false,
             'result' => $compteinfo,
@@ -130,7 +130,7 @@ class APIClientController extends Controller
 
     public function DisplayEditCompte($id)
     {
-        $compteinfo = DB::table('users')->where('id' ,'=',$id)->get();
+        $compteinfo = DB::table('users')->where('id', '=', $id)->get();
         return response()->json(array(
             'error' => false,
             'result' => $compteinfo,
@@ -141,31 +141,31 @@ class APIClientController extends Controller
 
     public function EditCompte()
     {
-$mobilUser = request()->all();
+        $mobilUser = request()->all();
 
         $update = User::find($mobilUser['id']);
-        $update->name=$mobilUser['name'];
-        $update->email=$mobilUser['email'];
-        $update->password=bcrypt($mobilUser['password']);
-        $update->prenom=$mobilUser['prenom'];
-        $update->civilite=$mobilUser['civilite'];
-        $update->numero_telephone=$mobilUser['numero_telephone'];
-        $update->date_naissance=$mobilUser['date_naissance'];
-        $update->lieu_naissance=$mobilUser['lieu_naissance'];
-        $update->adresse_domicile=$mobilUser['adresse_domicile'];
-        $update->postal_domicile=$mobilUser['postal_domicile'];
-        $update->ville_domicile=$mobilUser['ville_domicile'];
+        $update->name = $mobilUser['name'];
+        $update->email = $mobilUser['email'];
+        $update->password = bcrypt($mobilUser['password']);
+        $update->prenom = $mobilUser['prenom'];
+        $update->civilite = $mobilUser['civilite'];
+        $update->numero_telephone = $mobilUser['numero_telephone'];
+        $update->date_naissance = $mobilUser['date_naissance'];
+        $update->lieu_naissance = $mobilUser['lieu_naissance'];
+        $update->adresse_domicile = $mobilUser['adresse_domicile'];
+        $update->postal_domicile = $mobilUser['postal_domicile'];
+        $update->ville_domicile = $mobilUser['ville_domicile'];
         $update->save();
 
 
-        $compteinfo = DB::table('users')->where('id' ,'=',$mobilUser['id'])->get();
+        $compteinfo = DB::table('users')->where('id', '=', $mobilUser['id'])->get();
 
 
-            return response()->json(array(
-                'error' => false,
-                'result' => $compteinfo,
-                'status_code' => 200
-            ));
+        return response()->json(array(
+            'error' => false,
+            'result' => $compteinfo,
+            'status_code' => 200
+        ));
 
     }
 

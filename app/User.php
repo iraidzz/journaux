@@ -33,4 +33,9 @@ class User extends Authenticatable
         return $this ->hasMany('\App\historique');
     }
 
+    public function abonnement()
+    {
+        return $this ->hasMany('\App\abonnement');
+    }
+
 }

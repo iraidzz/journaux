@@ -26,17 +26,17 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <div class="col-lg-1"><b><u>Genre</u></b></div>
-                        <div class="col-lg-1"><b><u>Prénom</u></b></div>
-                        <div class="col-lg-1"><b><u>Nom</u></b></div>
-                        <div class="col-lg-2"><b><u>Email</u></b></div>
+                        <div class="col-lg-2"><b><u>Prénom</u></b></div>
+                        <div class="col-lg-2"><b><u>Nom</u></b></div>
+                        <div class="col-lg-3"><b><u>Email</u></b></div>
                         <div class="col-lg-2"><b><u>Numero de téléphone</u></b></div>
                         <div class="col-lg-1"><b><u>Action</u></b></div>
                         <br><br>
                         @foreach ($client as $patate)
                                 <div class="col-lg-1">{{  $patate->civilite }}</div>
-                                <div class="col-lg-1">{{  $patate->prenom }}</div>
-                                <div class="col-lg-1">{{  $patate->name }}</div>
-                                <div class="col-lg-2">{{  $patate->email }}</div>
+                                <div class="col-lg-2">{{  $patate->prenom }}</div>
+                                <div class="col-lg-2">{{  $patate->name }}</div>
+                                <div class="col-lg-3">{{  $patate->email }}</div>
                                 <div class="col-lg-2">{{  $patate->numero_telephone }}</div>
                                 <div class="col-lg-1"><a href="/client/{{ $patate-> id }}"> <b><u>Détails</u></b></a></div>
                                 <br>
