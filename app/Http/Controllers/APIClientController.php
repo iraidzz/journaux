@@ -46,7 +46,6 @@ class APIClientController extends Controller
     public function enregistrer()
     {
 
-
         $mobilUser = request('user');
         $email = $mobilUser['email'];
         $data = [];
@@ -77,4 +76,57 @@ class APIClientController extends Controller
             ));
         }
     }
+
+
+    public function Display($id)
+    {
+        $compteinfo = DB::table('users')->where('id' ,'=',$id)->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $compteinfo,
+            'status_code' => 200
+        ));
+    }
+
+    public function DisplayEditCompte($id)
+    {
+        $compteinfo = DB::table('users')->where('id' ,'=',$id)->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $compteinfo,
+            'status_code' => 200
+        ));
+    }
+
+
+    public function EditCompte()
+    {
+$mobilUser = request()->all();
+
+        $update = User::find($mobilUser['id']);
+        $update->name=$mobilUser['name'];
+        $update->email=$mobilUser['email'];
+        $update->password=bcrypt($mobilUser['password']);
+        $update->prenom=$mobilUser['prenom'];
+        $update->civilite=$mobilUser['civilite'];
+        $update->numero_telephone=$mobilUser['numero_telephone'];
+        $update->date_naissance=$mobilUser['date_naissance'];
+        $update->lieu_naissance=$mobilUser['lieu_naissance'];
+        $update->adresse_domicile=$mobilUser['adresse_domicile'];
+        $update->postal_domicile=$mobilUser['postal_domicile'];
+        $update->ville_domicile=$mobilUser['ville_domicile'];
+        $update->save();
+
+
+        $compteinfo = DB::table('users')->where('id' ,'=',$mobilUser['id'])->get();
+
+
+            return response()->json(array(
+                'error' => false,
+                'result' => $compteinfo,
+                'status_code' => 200
+            ));
+
+    }
+
 }

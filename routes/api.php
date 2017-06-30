@@ -36,4 +36,7 @@ Route::post('/client/authentifier',"APIClientController@authentifier" );
 
 Route::post('/client/enregistrer',"APIClientController@enregistrer" );
 
+Route::get('/client/moncompte/{id}',"APIClientController@Display" );
+Route::get('/client/affichereditcompte/{id}',"APIClientController@DisplayEditCompte" );
+Route::post('/client/edit',"APIClientController@EditCompte" );
 
