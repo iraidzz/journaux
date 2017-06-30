@@ -40,3 +40,10 @@ Route::get('/client/moncompte/{id}',"APIClientController@Display" );
 Route::get('/client/affichereditcompte/{id}',"APIClientController@DisplayEditCompte" );
 Route::post('/client/edit',"APIClientController@EditCompte" );
 
+
+/* Route abonnement*/
+
+Route::get('/client/mesabonnements',"APIClientController@mesabonnements" );
+
+Route::post('/client/sabonner',"APIClientController@sabonner" );
+

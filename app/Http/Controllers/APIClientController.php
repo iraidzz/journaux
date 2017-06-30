@@ -23,6 +23,46 @@ class APIClientController extends Controller
         $this->middleware('auth');
     }
     */
+    public function mesabonnements()
+    {
+
+        $mesabonnements = DB::table('abonnements')->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $mesabonnements,
+            'status_code' => 200
+        ));
+    }
+    // On récupère les informations magazine pour lesquels le client s'est abonné
+    public function lister()
+    {
+        $publications = DB::table('publications')->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $publications,
+            'status_code' => 200
+        ));
+
+    }
+    // Quand on clique sur le bouton "s'abonner"
+
+    public function sabonner()
+    {
+        // ----- C'EST ICI QUE DOIT SE PASSER L'INSERTION DU NOUVEL ABONNEMENT DANS LA BDD -----//
+
+        $sabonner = request('sabo');
+
+        //dd($sabonner);
+        $data = array(
+            'client_id' => $sabonner['client_id'],
+            'publication_id' => $sabonner['publication_id'],
+            'date_debut' => $sabonner['date_debut'],
+            'date_fin' => $sabonner['date_fin'],
+            'date_pause' => '0000-00-00',
+        );
+        //dd($data);
+        DB::table('abonnements')->insert($data);
+    }
 
     public function authentifier()
     {

@@ -16,12 +16,56 @@ class CreateAbonnementsTable extends Migration
         Schema::create('abonnements', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('client_id')/* ->unsigned() */;
+            $table->integer('publication_id')/* ->unsigned() */;
             /* $table->foreign('id_client')->references('id')->on('client'); */
-            $table->dateTime('date_debut');
-            $table->dateTime('date_fin');
-            $table->dateTime('date_pause');
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->date('date_pause');
         });
+
+        DB::table('abonnements')->insert(
+            array(
+                'client_id' => '1',
+                'publication_id' => '1',
+                'date_debut' => '25/04/2017',
+                'date_fin' => '25/04/2018',
+                'date_pause' => '25/04/2018',
+            )
+        );
+
+        DB::table('abonnements')->insert(
+            array(
+                'client_id' => '1',
+                'publication_id' => '2',
+                'date_debut' => '11/11/2016',
+                'date_fin' => '11/11/2017',
+                'date_pause' => '11/11/2017',
+            )
+        );
+
+        DB::table('abonnements')->insert(
+            array(
+                'client_id' => '1',
+                'publication_id' => '3',
+                'date_debut' => '09/07/2016',
+                'date_fin' => '09/07/2017',
+                'date_pause' => '09/07/2017',
+            )
+        );
+
+        DB::table('abonnements')->insert(
+            array(
+                'client_id' => '1',
+                'publication_id' => '4',
+                'date_debut' => '09/07/2015',
+                'date_fin' => '09/07/2015',
+                'date_pause' => '09/07/2015',
+            )
+        );
     }
+
+
+
 
     /**
      * Reverse the migrations.
