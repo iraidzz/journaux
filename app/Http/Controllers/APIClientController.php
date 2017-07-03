@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\abonnement;
 use App\User;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +49,63 @@ class APIClientController extends Controller
     }
     // Quand on clique sur le bouton "s'abonner"
 
+
+    public function renouvelerabonnement()
+    {
+
+
+
+
+
+        $sabonner = request()->all();
+
+        //dd($sabonner);
+        $dateString = $sabonner['date_fin'];
+        $dt = new DateTime($dateString);
+        $dt->modify('+1 year');
+        $data = array(
+            'id_abonnement' => $sabonner['id_abonnement'],
+            'date_fin' => $dt,
+        );
+        //dd($data);
+        DB::table('abonnements')->where('id',$sabonner['id_abonnement'])
+            ->update(['date_fin' => $dt]);
+
+
+        /*
+
+                // On +1 année  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        $renouvelerabonnement = request()->all();
+
+        $update = abonnement::find($renouvelerabonnement['id_abonnement']);
+        $update->date_fin = $renouvelerabonnement['date_fin'];
+        $update->save();
+
+
+        $renewabo = DB::table('abonnements')->where('id', '=', '1')->get();
+
+
+        return response()->json(array(
+            'error' => false,
+            'result' => $renewabo,
+            'status_code' => 200
+        ));
+
+        */
+    }
+    public function suspendreabonnement()
+    {
+
+        $suspendre = request()->all();
+
+        $data = array(
+            'id_abonnement' => $suspendre['id_abonnement'],
+            'etat' => $suspendre['etat'],
+        );
+
+        DB::table('abonnements')->where('id',$suspendre['id_abonnement'])
+            ->update(['etat' => $suspendre['etat']]);
+    }
     public function sabonner()
     {
         // ----- C'EST ICI QUE DOIT SE PASSER L'INSERTION DU NOUVEL ABONNEMENT DANS LA BDD -----//
@@ -61,6 +119,7 @@ class APIClientController extends Controller
             'date_debut' => $sabonner['date_debut'],
             'date_fin' => $sabonner['date_fin'],
             'date_pause' => $sabonner['date_pause'],
+            'etat' => '1',
         );
         //dd($data);
         DB::table('abonnements')->insert($data);

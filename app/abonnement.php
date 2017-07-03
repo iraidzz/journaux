@@ -8,7 +8,7 @@ class abonnement extends Model
 {
     //
     protected $fillable = [
-        'client_id', 'publication_id', 'date_debut','date_fin'
+        'client_id', 'publication_id', 'date_debut','date_fin','etat'
     ];
 
     public function client()
