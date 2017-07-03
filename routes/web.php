@@ -26,6 +26,14 @@ Route::post('/editclient',"GestionClientController@EditClient" );
 Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclient');
 Route::post('/gestionclient', 'GestionClientController@FiltreClient'); // Rechercher un client
 
+/* Route client gestion abonnement */
+Route::get('/arreteraboencours/{id}/{idclient}',"GestionClientController@ArretAboEnCours" );
+Route::get('/pauseaboencours/{id}/{idclient}',"GestionClientController@PauseAboEnCours" );
+Route::get('/redemarreraboenpause/{id}/{idclient}',"GestionClientController@RedemarrerAboEnPause" );
+Route::get('/arreteraboenpause/{id}/{idclient}',"GestionClientController@ArreterAboEnPause" );
+Route::get('/redemarrerabostopper/{id}/{idclient}',"GestionClientController@RedemarrerAboStopper" );
+
+
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
 Route::post('/editpublication',"PublicationController@EditPublication");

@@ -18,7 +18,7 @@ class abonnement extends Model
 
     public function publication()
     {
-        return $this->belongsTo('\App\User');
+        return $this->belongsTo('\App\publication');
     }
 
 
