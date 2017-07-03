@@ -47,6 +47,10 @@ Route::get('/client/mesabonnements/{id}',"APIClientController@mesabonnements" );
 
 Route::post('/client/sabonner',"APIClientController@sabonner" );
 
+/* Route anciens abonnements*/
+
+Route::get('/client/mesanciensabonnements/{id}',"APIClientController@mesanciensabonnements" );
+
 // Renouveler abonnement
 
 Route::post('/client/renouvelerabonnement',"APIClientController@renouvelerabonnement" );
