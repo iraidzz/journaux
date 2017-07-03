@@ -47,9 +47,17 @@ Route::get('/client/mesabonnements/{id}',"APIClientController@mesabonnements" );
 
 Route::post('/client/sabonner',"APIClientController@sabonner" );
 
-// Renouveler abonnement
+/* Route anciens abonnements*/
+
+Route::get('/client/mesanciensabonnements/{id}',"APIClientController@mesanciensabonnements" );
+
+// Renouveler abonnement (+1 an date_fin )
 
 Route::post('/client/renouvelerabonnement',"APIClientController@renouvelerabonnement" );
+
+// Relancer abonnement arrêté (+1 an date(now) )
+
+Route::post('/client/relancerabonnementarrete',"APIClientController@relancerabonnementarrete" );
 
 
 // Suspendre abonnement
