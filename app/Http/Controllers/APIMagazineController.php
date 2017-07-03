@@ -33,6 +33,20 @@ class APIMagazineController extends Controller
 
     }
 
+    public function filtrer()
+    {
+        $filtrer = request()->all();
+        $letitre = $filtrer['titre'];
+        $publications = DB::table('publications')->where('titre', '=', $letitre)->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $publications,
+            'status_code' => 200
+        ));
+
+    }
+
+
     public function detail(Request $request)
     {
         $input = $request->all();

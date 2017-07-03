@@ -30,6 +30,9 @@ Route::get('/magazine/lister',"APIMagazineController@lister" );
 
 Route::get('/magazine/detail',"APIMagazineController@detail" );
 
+/* Route magazine (recherche */
+Route::post('/magazine/filtrer',"APIMagazineController@filtrer" );
+
 /* Route authentification*/
 
 Route::post('/client/authentifier',"APIClientController@authentifier" );
