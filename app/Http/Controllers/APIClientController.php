@@ -38,13 +38,26 @@ class APIClientController extends Controller
 
     public function mesanciensabonnements($id)
     {
+//        $mesabonnements = DB::table('abonnements')
+//            ->where('client_id', '=', $id)
+//            ->where('etat', '=', '3')
+//            ->get();
 
-        $mesabonnements = DB::table('abonnements')->where('client_id', '=', $id)->where('etat', '=', '3')->get();
+        $mesabonnements = DB::table('abonnements')
+            ->where('client_id', '=', $id)
+            ->where('etat', '=', '3')
+            ->orWhere(function($q) use ($id) {
+                $q->where('date_fin','<=', date('Y-m-d'))
+                    ->where('client_id', '=', $id);
+            })
+            ->get();
+
         return response()->json(array(
             'error' => false,
             'result' => $mesabonnements,
             'status_code' => 200
         ));
+
     }
 
     // On récupère les informations magazine pour lesquels le client s'est abonné
@@ -80,7 +93,15 @@ class APIClientController extends Controller
         );
         //dd($data);
         DB::table('abonnements')->where('id',$sabonner['id_abonnement'])
-            ->update(['date_fin' => $dt]);
+            ->update(['date_fin' => $dt,'etat' => '1']);
+
+        /*
+         *
+        $abonnement=DB::table('abonnements')->where('id',$sabonner['id_abonnement'])->first();
+        $abonnement->date_fin=$dt;
+        $abonnement->etat=1;
+        $abonnement->save();
+         */
 
 
         /*
@@ -103,6 +124,16 @@ class APIClientController extends Controller
         ));
 
         */
+    }
+
+    public function relancerabonnementarrete()
+    {
+        $sabonner = request()->all();
+
+        //dd($data);
+        DB::table('abonnements')->where('id',$sabonner['id_abonnement'])
+            ->update(['date_fin' => $sabonner['date_fin'],'etat' => '1']);
+
     }
     public function suspendreabonnement()
     {
