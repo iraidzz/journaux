@@ -18,7 +18,7 @@ class CreateHistoriquesTable extends Migration
             $table->integer('user_id');
             $table->string('user_employe_id');
             $table->string('type_communication');
-            $table->dateTime('date');
+            $table->date('date');
             $table->longText('commentaire');
 
         });
