@@ -19,21 +19,22 @@
                         <form role="form" action="{{action('AbonnementClientController@AjoutAbonnementClient')}}" method="post">
                             {!! csrf_field() !!}
                             <div class="row">
+
+                                <div class="form-group col-lg-12">
+                                    <label>Magazines</label>
+                                    <select name="magazine" type="text" class="form-control">
+                                        @foreach ($publi as $publications)
+                                            <option value="{{$publications -> id}}" selected>{{$publications -> titre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <div class="form-group col-lg-6">
 
                                     <input name="client_id" type="hidden" class="form-control" value="{{$clients -> id}}">
 
                                     <label>Client concerné</label>
                                     <input name="affichage_nom_client" disabled type="text" class="form-control" value="{{$clients -> name}}">
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Magazines</label>
-                                    <select name="magazine" type="text" class="form-control">
-                                        @foreach ($publi as $publications)
-                                        <option value="{{$publications -> id}}" selected>{{$publications -> titre}}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
 
                                 <div class="form-group col-lg-6">
