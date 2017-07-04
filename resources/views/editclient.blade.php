@@ -102,7 +102,7 @@
 
                                 <div class="form-group col-lg-12">
                                     <center>
-                                        <button type="submit" class="btn btn-default">Modifier le client.</button>
+                                        <button type="submit" class="btn btn-default">Modifier le client</button>
                                     </center>
                                     </br>
                                     <a href="/deleteclient/{{ $patate-> id }}"> <b><u>Supprimer le client</u></b></a>
