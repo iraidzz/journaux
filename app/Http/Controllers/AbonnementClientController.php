@@ -24,13 +24,6 @@ class AbonnementClientController
         return View::make('ajoutabonnementclient')->with('client', $client)->with('publi',$publi);
     }
 
-//$dateString = $sabonner['date_fin'];
-//$dt = new DateTime($dateString);
-//$dt->modify('+1 year');
-//$data = array(
-//'id_abonnement' => $sabonner['id_abonnement'],
-//'date_fin' => $dt,
-//);
     public function AjoutAbonnementClient(Request $request)
     {
         $post = $request->all();
@@ -55,6 +48,7 @@ class AbonnementClientController
             $data = array(
                 'client_id'=>$post['client_id'],
                 'publication_id'=>$post['magazine'],
+                'prix'=>$post['prix'],
                 'date_debut'=>$post['date'],
                 'date_fin'=>$dt,
                 'date_pause'=>null,
@@ -67,14 +61,6 @@ class AbonnementClientController
             }
         }
     }
-
-//$table->increments('id');
-//$table->integer('client_id');
-//$table->integer('publication_id');
-//$table->date('date_debut');
-//$table->date('date_fin');
-//$table->date('date_pause');
-//$table->integer('etat');
 
 
 
