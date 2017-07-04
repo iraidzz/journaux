@@ -19,7 +19,7 @@ class CreateAbonnementsTable extends Migration
             $table->integer('publication_id');
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->date('date_pause');
+            $table->date('date_pause')->nullable();
             $table->integer('etat');
         });
 

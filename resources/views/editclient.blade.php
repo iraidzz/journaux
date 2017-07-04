@@ -149,6 +149,7 @@
                     <h2 class="intro-text text-center">Abonnement du
                         <strong>client</strong></h2>
                     <hr>
+                    <a href="/displayajoutabonnement/{{ $patate-> id }}"><b><u>Ajouter un abonnement</u></b></a>
                     <br><br>
                     <div class="col-lg-3"><b>Magazine</b></div>
                     <div class="col-lg-2"><b>Date abonnement</b></div>

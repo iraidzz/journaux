@@ -27,12 +27,13 @@ Route::get('/gestionclient', 'GestionClientController@index')->name('gestionclie
 Route::post('/gestionclient', 'GestionClientController@FiltreClient'); // Rechercher un client
 
 /* Route client gestion abonnement */
-Route::get('/arreteraboencours/{id}/{idclient}',"GestionClientController@ArretAboEnCours" );
-Route::get('/pauseaboencours/{id}/{idclient}',"GestionClientController@PauseAboEnCours" );
-Route::get('/redemarreraboenpause/{id}/{idclient}',"GestionClientController@RedemarrerAboEnPause" );
-Route::get('/arreteraboenpause/{id}/{idclient}',"GestionClientController@ArreterAboEnPause" );
-Route::get('/redemarrerabostopper/{id}/{idclient}',"GestionClientController@RedemarrerAboStopper" );
-
+Route::get('/arreteraboencours/{id}/{idclient}',"AbonnementClientController@ArretAboEnCours" );
+Route::get('/pauseaboencours/{id}/{idclient}',"AbonnementClientController@PauseAboEnCours" );
+Route::get('/redemarreraboenpause/{id}/{idclient}',"AbonnementClientController@RedemarrerAboEnPause" );
+Route::get('/arreteraboenpause/{id}/{idclient}',"AbonnementClientController@ArreterAboEnPause" );
+Route::get('/redemarrerabostopper/{id}/{idclient}',"AbonnementClientController@RedemarrerAboStopper" );
+Route::get('/displayajoutabonnement/{id}', 'AbonnementClientController@DisplayAjouterAbonnementClient'); // Formulaire Historique
+Route::post('/ajoutabonnementclient', 'AbonnementClientController@AjoutAbonnementClient'); // Validation Formulaire Historique
 
 /* Route magazine */
 Route::get('/publication/{id}',"PublicationController@DisplayEditPublication" );
