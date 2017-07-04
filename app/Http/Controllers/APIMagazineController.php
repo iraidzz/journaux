@@ -37,6 +37,7 @@ class APIMagazineController extends Controller
     {
         $filtrer = request()->all();
         $letitre = $filtrer['titre'];
+        //dd($letitre);
         $publications = DB::table('publications')->where('titre', '=', $letitre)->get();
         return response()->json(array(
             'error' => false,
