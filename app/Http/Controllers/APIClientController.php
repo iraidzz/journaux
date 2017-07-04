@@ -36,6 +36,17 @@ class APIClientController extends Controller
         ));
     }
 
+    public function checkDejaAbonne($id) // Pour l'affichage des magazine, concernant le bouton grisé "déjà abonné"
+    {
+
+        $mesabonnements = DB::table('abonnements')->where('client_id', '=', $id)->where('etat', '=', '1')->get();
+        return response()->json(array(
+            'error' => false,
+            'result' => $mesabonnements,
+            'status_code' => 200
+        ));
+    }
+
     public function mesanciensabonnements($id)
     {
 //        $mesabonnements = DB::table('abonnements')
