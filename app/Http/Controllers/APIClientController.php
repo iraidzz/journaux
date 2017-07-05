@@ -102,9 +102,23 @@ class APIClientController extends Controller
             'id_abonnement' => $sabonner['id_abonnement'],
             'date_fin' => $dt,
         );
-        //dd($data);
+
+        /* On fait un test */
+        if($sabonner['paye']=='1') /*Si l'abonnement à déjà été réglé par le client , on update la ligne pour une année supplémentaire avec pour prix le coût du magazine pour une année */
+        {
+            $prix = $sabonner['prixmagazineannuel'];
+
+        }
+        else /*Si l'abonnement n'a pas été payé la premiere fois , on update la ligne pour une année supplémentaire avec pour prix le coût du magazine pour une année ++++++ coût de l'année précédente */
+        {
+            $prix = $sabonner['prixmagazineannuel'] + $sabonner['coutabonnement'];
+        }
+        // Maintenant , on remet l'etat de paiement à 0, pour dire que le client doit régler cet abonnement
+        $paye = '0';
+
+
         DB::table('abonnements')->where('id',$sabonner['id_abonnement'])
-            ->update(['date_fin' => $dt,'etat' => '1']);
+            ->update(['date_fin' => $dt,'etat' => '1','paye'=>$paye, 'prix'=>$prix]);
 
         /*
          *
@@ -169,10 +183,12 @@ class APIClientController extends Controller
         $data = array(
             'client_id' => $sabonner['client_id'],
             'publication_id' => $sabonner['publication_id'],
+            'prix' => $sabonner['prix'],
             'date_debut' => $sabonner['date_debut'],
             'date_fin' => $sabonner['date_fin'],
             'date_pause' => $sabonner['date_pause'],
             'etat' => '1',
+            'paye' => '0',
         );
         //dd($data);
         DB::table('abonnements')->insert($data);
