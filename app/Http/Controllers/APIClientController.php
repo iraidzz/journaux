@@ -207,7 +207,8 @@ class APIClientController extends Controller
         } else {
             return response()->json(array(
                 'error' => true,
-                'status_code' => 401));
+                'status_code' => 401,
+                'result'=>'ErreurConnexion'));
         }
     }
 
