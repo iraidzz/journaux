@@ -169,6 +169,7 @@ class APIClientController extends Controller
         $data = array(
             'client_id' => $sabonner['client_id'],
             'publication_id' => $sabonner['publication_id'],
+            'prix' => $sabonner['prix'],
             'date_debut' => $sabonner['date_debut'],
             'date_fin' => $sabonner['date_fin'],
             'date_pause' => $sabonner['date_pause'],

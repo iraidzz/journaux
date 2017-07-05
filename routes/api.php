@@ -33,37 +33,29 @@ Route::get('/magazine/detail',"APIMagazineController@detail" );
 /* Route magazine (recherche */
 Route::post('/magazine/filtrer',"APIMagazineController@filtrer" );
 
-/* Route authentification*/
-
+/* Route gestion client*/
 Route::post('/client/authentifier',"APIClientController@authentifier" );
-
 Route::post('/client/enregistrer',"APIClientController@enregistrer" );
-
 Route::get('/client/moncompte/{id}',"APIClientController@Display" );
 Route::get('/client/affichereditcompte/{id}',"APIClientController@DisplayEditCompte" );
 Route::post('/client/edit',"APIClientController@EditCompte" );
 
-
 /* Route abonnement*/
-
 Route::get('/client/mesabonnements/{id}',"APIClientController@mesabonnements" );
-
 Route::post('/client/sabonner',"APIClientController@sabonner" );
 
 /* Route anciens abonnements*/
-
 Route::get('/client/mesanciensabonnements/{id}',"APIClientController@mesanciensabonnements" );
 
 // Renouveler abonnement (+1 an date_fin )
-
 Route::post('/client/renouvelerabonnement',"APIClientController@renouvelerabonnement" );
 
 // Relancer abonnement arrêté (+1 an date(now) )
-
 Route::post('/client/relancerabonnementarrete',"APIClientController@relancerabonnementarrete" );
 
-
 // Suspendre abonnement
-
 Route::post('/client/suspendreabonnement',"APIClientController@suspendreabonnement" );
+
+// Route gestion panier/paiement
+Route::get('/client/panier/{id}',"APIPanierController@DisplayPanier" );
 
