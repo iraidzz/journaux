@@ -20,7 +20,7 @@
                             <center><img width="210px" height="100px" class="img-responsive img-border img-full" src="{{$value->photo_couverture}}" alt=""></center><br>
                             <div class="form-group col-lg-6">
                                 <label>Titre publication</label>
-                                <input name="titre" type="text" value="{{$value->titre}}" class="form-control">
+                                <input name="titre" type="text" value="{{$value->titre}}" class="form-control" required>
                             </div>
 
                             <div class="form-group col-lg-6">
@@ -31,15 +31,15 @@
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Texte publication</label>
-                                <textarea name="description" class="form-control" rows="6">{{$value->description}}</textarea>
+                                <textarea name="description" class="form-control" rows="6" required>{{$value->description}}</textarea>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Prix à l'année</label>
-                                <input name="prix_annuel" type="number" value="{{$value->prix_annuel}}" class="form-control">
+                                <input name="prix_annuel" type="number" value="{{$value->prix_annuel}}" class="form-control" required>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Nombre de parutions à l'année</label>
-                                <input name="nombre_numero" type="text" value="{{$value->nombre_numero}}" class="form-control">
+                                <input name="nombre_numero" type="number" value="{{$value->nombre_numero}}" class="form-control" required>
                             </div>
                             <div class="form-group col-lg-12">
                                 <center><button type="submit" class="btn btn-default">Modifier</button></center>

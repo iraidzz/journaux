@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="form-group col-lg-6">
                                 <label>Titre publication</label>
-                                <input name="titre" type="text" class="form-control">
+                                <input name="titre" type="text" required class="form-control">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Image de l'article </label>
@@ -26,15 +26,15 @@
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Texte publication</label>
-                                <textarea name="description" class="form-control" rows="6"></textarea>
+                                <textarea name="description" class="form-control" rows="6" required></textarea>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Prix à l'année</label>
-                                <input name="prix_annuel" placeholder="Prix en €" type="number" class="form-control">
+                                <input name="prix_annuel" placeholder="Prix en €" type="number" class="form-control" required>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Nombre de parutions à l'année</label>
-                                <input name="nombre_numero" type="text" class="form-control">
+                                <input name="nombre_numero" type="number" class="form-control" required>
                             </div>
                             <div class="form-group col-lg-12">
                                 <center><button type="submit" class="btn btn-default">Créer la publication.</button></center>

@@ -42,60 +42,60 @@
 
                                         <div class="form-group col-lg-6">
                                             <label>Nom</label>
-                                            <input name="name" type="text" class="form-control" value="{{  $patate->name }}">
+                                            <input name="name" type="text" class="form-control" value="{{  $patate->name }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Prénom</label>
                                             <input name="prenom" type="text" class="form-control"
-                                                   value="{{  $patate->prenom }}">
+                                                   value="{{  $patate->prenom }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Email</label>
-                                            <input name="email" type="email" class="form-control" value="{{  $patate->email }}">
+                                            <input name="email" type="email" class="form-control" value="{{  $patate->email }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Password</label>
                                             <input name="password" type="password" class="form-control"
-                                                   value="{{  $patate->password }}">
+                                                   value="{{  $patate->password }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Numero de téléphone</label>
                                             <input name="numero_telephone" type="text" class="form-control"
-                                                   value="{{  $patate->numero_telephone }}">
+                                                   value="{{  $patate->numero_telephone }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Date de naissance</label>
-                                            <input name="date_naissance" type="text" class="form-control"
+                                            <input name="date_naissance" type="date" class="form-control"
                                                    value="{{  $patate->date_naissance }}">
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Lieu naissance</label>
                                             <input name="lieu_naissance" type="text" class="form-control"
-                                                   value="{{  $patate->lieu_naissance }}">
+                                                   value="{{  $patate->lieu_naissance }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Adresse de domicile</label>
                                             <input name="adresse_domicile" type="text" class="form-control"
-                                                   value="{{  $patate->adresse_domicile }}">
+                                                   value="{{  $patate->adresse_domicile }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Code postal</label>
                                             <input name="postal_domicile" type="text" class="form-control"
-                                                   value="{{  $patate->postal_domicile }}">
+                                                   value="{{  $patate->postal_domicile }}" required>
                                         </div>
 
-                                        <div class="form-group col-lg-6">
+                                        <div class="form-group col-lg-12">
                                             <label>Ville</label>
                                             <input name="ville_domicile" type="text" class="form-control"
-                                                   value="{{  $patate->ville_domicile }}">
+                                                   value="{{  $patate->ville_domicile }}" required>
                                         </div>
 
 

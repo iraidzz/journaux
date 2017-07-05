@@ -46,12 +46,12 @@
 
                             <div class="form-group col-lg-6">
                                 <label>Date</label>
-                                <input name="date" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" >
+                                <input name="date" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
                             </div>
 
                             <div class="form-group col-lg-12">
                                 <label>Commentaire</label>
-                                <textarea name="commentaire" type="text" class="form-control"></textarea>
+                                <textarea name="commentaire" type="text" class="form-control" required></textarea>
                             </div>
 
 
