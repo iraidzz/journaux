@@ -22,6 +22,7 @@ class CreateAbonnementsTable extends Migration
             $table->date('date_fin');
             $table->date('date_pause')->nullable();
             $table->integer('etat');
+            $table->boolean('paye')->default(false);
         });
 
         DB::table('abonnements')->insert(
@@ -33,6 +34,7 @@ class CreateAbonnementsTable extends Migration
                 'date_fin' => '25/04/2018',
                 'date_pause' => '25/04/2018',
                 'etat' => '1',
+                'paye' => false,
             )
         );
 
@@ -45,6 +47,8 @@ class CreateAbonnementsTable extends Migration
                 'date_fin' => '11/11/2017',
                 'date_pause' => '11/11/2017',
                 'etat' => '1',
+                'paye' => false,
+
             )
         );
 
@@ -57,6 +61,8 @@ class CreateAbonnementsTable extends Migration
                 'date_fin' => '09/07/2017',
                 'date_pause' => '09/07/2017',
                 'etat' => '1',
+                'paye' => false,
+
             )
         );
 
@@ -69,6 +75,8 @@ class CreateAbonnementsTable extends Migration
                 'date_fin' => '09/07/2015',
                 'date_pause' => '09/07/2015',
                 'etat' => '1',
+                'paye' => false,
+
             )
         );
     }

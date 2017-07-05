@@ -29,10 +29,6 @@
                                     </select>
                                 </div>
 
-                                @foreach ($publi as $publications)
-                                <input name="prix" type="hidden" class="form-control" value="{{$publications -> prix_annuel}}">
-                                @endforeach
-
                                 <div class="form-group col-lg-6">
 
                                     <input name="client_id" type="hidden" class="form-control" value="{{$clients -> id}}">
