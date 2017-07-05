@@ -18,7 +18,7 @@ class APIPanierController
     public function DisplayPanier($id)
     {
 
-$panier = abonnement::with('publication')->where('client_id', '=', $id)->where('paye', '=', false)->get();
+$panier = abonnement::with('publication')->where('client_id', '=', $id)->where('paye', '=', 0)->get();
         return response()->json(array(
             'error' => false,
             'result' => $panier,
