@@ -58,4 +58,5 @@ Route::post('/client/suspendreabonnement',"APIClientController@suspendreabonneme
 
 // Route gestion panier/paiement
 Route::get('/client/panier/{id}',"APIPanierController@DisplayPanier" );
-Route::get('/client/paiementfinal',"APIPanierController@Paiement" );
+Route::post('/client/paiementfinal',"APIPanierController@Paiement" );
+Route::post('/paiement/retour',"APIPanierController@RetourPaiement" );

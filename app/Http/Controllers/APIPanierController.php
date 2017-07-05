@@ -26,35 +26,48 @@ $panier = abonnement::with('publication')->where('client_id', '=', $id)->where('
         ));
     }
 
+    public function RetourPaiement()
+    {
+
+
+        $mobilUser = request()->all();
+       $type = $mobilUser['type'];
+       $amount = $mobilUser['amount'];
+       $transaction = $mobilUser['transaction'];
+       $cid = $mobilUser['cid'];
+
+        return response()->json(array(
+            'error' => false,
+            'status_code' => 200
+        ));
+    }
+
     public function Paiement()
     {
 
     $info = request()->all();
 
-        $uuid = $info['uuid'];
-        $cid = $info['cid'];
-        $cardnumber = $info['cardnumber'];
-        $cardmonth = $info['cardmonth'];
-        $cardyear = $info['cardyear'];
-        $amount = $info['amount'];
+        $uuid = $info['uuid']; //pas de restriction cote esipay
+        $cid = $info['cid']; //pas de restriction cote esipay
+        $cardnumber = $info['cardnumber']; //10 chiffres
+        $cardmonth = $info['cardmonth']; //pas de restriction cote esipay
+        $cardyear = $info['cardyear']; //pas de restriction cote esipay
+        $amount = $info['amount']; //pas de restriction cote esipay
 
-//        URL : /cardpay/uuid/cid/cardnumber/cardmonth/cardyear/amount
-
-        $ch = curl_init();
-        $url = "http://10.0.0.6/cardpay/uuid/cid/cardnumber/cardmonth/cardyear/amount";
-        // configuration des options
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,"uuid=$uuid&cid=$cid&cardnumber=$cardnumber&cardmonth=$cardmonth&cardyear=$cardyear&amount=$amount");
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-
-        $content =curl_exec($ch);
-
-        dd($content);
+        $url = "http://10.0.0.6:6543/cardpay/$uuid/$cid/$cardnumber/$cardmonth/$cardyear/$amount";
+//        $url = "http://journaux.dev/api/client/panier/$id";
+dd($url);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        $content = curl_getinfo($ch,CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-
-
+        return response()->json(array(
+            'error' => false,
+            'status_code' => 200
+        ));
 
 //        $mobilUser = request()->all();
 //        $update = User::find($mobilUser['id']);
