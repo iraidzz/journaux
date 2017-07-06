@@ -18,7 +18,7 @@ class CreatePaiementsTable extends Migration
             $table->text('type');
             $table->integer('amount');
             $table->integer('transaction');
-            $table->text('cid');
+            $table->integer('cid');
             $table->integer('statut');
             $table->timestamps();
         });

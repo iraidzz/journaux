@@ -30,71 +30,71 @@ class APIPanierController
 
     public function RetourPaiement()
     {
-
-//        if (request()->has('cid') && request()->has('transaction') && request()->has('amount')) {
-//            $paiement = paiement::find(request('cid'));
-//            if ($paiement) {
-//                $paiement->type = request('type');
-//                $paiement->amount = request('amount');
-//                $paiement->transaction = request('transaction');
-//                $paiement->cid = request('cid');
-//                $paiement->status = 1;
-//                $paiement->save();
-//                return response()->json('OK', 200);
-//            } else {
-//                return response()->json('KO', 405);
-//            }
+//        $cid = request('cid');
+//        $user = User::whereCID($cid)->first();
+//        if ($user) {
+//            return response()->json('Code pas bon',401 );
 //        } else {
-//            return response()->json('KO', 401);
+//            paiement::create([
+//                'type' => request('type'),
+//                'amount' => request('amount'),
+//                'transaction' => request('transaction'),
+//                'cid' => request('cid'),
+//                'statut' => 1,
+//            ]);
+//
+//            return response()->json('Code vert', 200);
 //        }
-
-return response()->json('CODE VERT','200');
+        return response()->json('Code vert', 200);
 
     }
 
+    public function Paiement()
+    {
 
-        public function Paiement()
-        {
+        $info = request()->all();
 
-            $info = request()->all();
+        $clientid = $info['clientid']; //pas de restriction cote esipay
+        $uuid = $info['uuid']; //pas de restriction cote esipay
+        $cid = $info['cid']; //pas de restriction cote esipay
+        $cardnumber = $info['cardnumber']; //10 chiffres
+        $cardmonth = $info['cardmonth']; //pas de restriction cote esipay
+        $cardyear = $info['cardyear']; //pas de restriction cote esipay
+        $amount = $info['amount']; //pas de restriction cote esipay
 
-            $uuid = $info['uuid']; //pas de restriction cote esipay
-            $cid = $info['cid']; //pas de restriction cote esipay
-            $cardnumber = $info['cardnumber']; //10 chiffres
-            $cardmonth = $info['cardmonth']; //pas de restriction cote esipay
-            $cardyear = $info['cardyear']; //pas de restriction cote esipay
-            $amount = $info['amount']; //pas de restriction cote esipay
+        $url = "http://10.0.0.6:6543/cardpay/$uuid/$cid/$cardnumber/$cardmonth/$cardyear/$amount";
 
-//            http://10.0.0.6:6543/cardpay/97a53bb0-c73b-06c4-df5a-136dd6f8deec/JournauxEnfolie/1234567890/10/2018/500
-            $url = "http://10.0.0.6:6543/cardpay/$uuid/$cid/$cardnumber/$cardmonth/$cardyear/$amount";
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        $content = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
 
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_exec($ch);
-            $content = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
+        if ($content == 200) {
 
-//        $mobilUser = request()->all();
-//        $update = User::find($mobilUser['id']);
-//        $update->name = $mobilUser['name'];
-//        $update->email = $mobilUser['email'];
-//        $update->password = bcrypt($mobilUser['password']);
-//        $update->prenom = $mobilUser['prenom'];
-//        $update->civilite = $mobilUser['civilite'];
-//        $update->numero_telephone = $mobilUser['numero_telephone'];
-//        $update->date_naissance = $mobilUser['date_naissance'];
-//        $update->lieu_naissance = $mobilUser['lieu_naissance'];
-//        $update->adresse_domicile = $mobilUser['adresse_domicile'];
-//        $update->postal_domicile = $mobilUser['postal_domicile'];
-//        $update->ville_domicile = $mobilUser['ville_domicile'];
-//        $update->save();
+            DB::table('abonnements')
+                ->where('id', $cid)
+                ->update(['paye' => 1]);
+
+            $panier = abonnement::with('publication')->where('client_id', '=', $clientid)->where('paye', '=', 0)->where('etat', '=', 1)->get();
+
+            return response()->json(array(
+                'error' => false,
+                'result' => $panier,
+                'status_code' => 200
+            ));
+
+        } else {
+            echo "a faire woulah";
+        }
+
 //        $compteinfo = DB::table('users')->where('id', '=', $mobilUser['id'])->get();
 //        return response()->json(array(
 //            'error' => false,
 //            'result' => $compteinfo,
 //            'status_code' => 200
 //        ));
-        }
-
     }
+
+}

@@ -60,3 +60,4 @@ Route::post('/client/suspendreabonnement',"APIClientController@suspendreabonneme
 Route::get('/client/panier/{id}',"APIPanierController@DisplayPanier" );
 Route::post('/client/paiementfinal',"APIPanierController@Paiement" );
 Route::post('/paiement/retour',"APIPanierController@RetourPaiement" );
+
