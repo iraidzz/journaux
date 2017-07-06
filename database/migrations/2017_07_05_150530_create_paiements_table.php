@@ -17,9 +17,9 @@ class CreatePaiementsTable extends Migration
             $table->increments('id');
             $table->text('type');
             $table->integer('amount');
-            $table->integer('transaction');
-            $table->integer('cid');
-            $table->integer('statut');
+            $table->text('transaction');
+            $table->integer('abonnement_id');
+            $table->integer('statut');//0=remboursé 1=client à payé
             $table->timestamps();
         });
     }
