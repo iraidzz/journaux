@@ -21,5 +21,9 @@ class abonnement extends Model
         return $this->belongsTo('\App\publication');
     }
 
+    public function paiement()
+    {
+        return $this ->hasMany('\App\paiement');
+    }
 
 }

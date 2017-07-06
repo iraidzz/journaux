@@ -30,24 +30,31 @@ class APIPanierController
 
     public function RetourPaiement()
     {
-//        $cid = request('cid');
-//        $user = User::whereCID($cid)->first();
-//        if ($user) {
-//            return response()->json('Code pas bon',401 );
-//        } else {
-//            paiement::create([
-//                'type' => request('type'),
-//                'amount' => request('amount'),
-//                'transaction' => request('transaction'),
-//                'cid' => request('cid'),
-//                'statut' => 1,
-//            ]);
-//
-//            return response()->json('Code vert', 200);
-//        }
-        return response()->json('Code vert', 200);
+        if (request()->has('cid'))
+        {
+            $data = array(
+                'type' => request('type'),
+                'amount' => request('amount'),
+                'transaction' => request('transaction'),
+                'abonnement_id' => request('cid'),
+                'statut' => 1,
+            );
+            $i=DB::table('paiements')->insert($data);
+            if($i>0)
+            {
+                return response()->json('Code vert', 200);
+            }else {
+                return response()->json('Code vert', 400);
+            }
+        }else {
+            return response()->json('Code vert', 500);
+
+        }
 
     }
+
+
+
 
     public function Paiement()
     {
@@ -77,7 +84,9 @@ class APIPanierController
                 ->where('id', $cid)
                 ->update(['paye' => 1]);
 
+
             $panier = abonnement::with('publication')->where('client_id', '=', $clientid)->where('paye', '=', 0)->where('etat', '=', 1)->get();
+
 
             return response()->json(array(
                 'error' => false,
