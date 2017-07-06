@@ -12,7 +12,8 @@
                         <div class="panel-heading"><b>MODIFIER UN CLIENT</b></div>
                         <div class="panel-body">
                             <div class="col-md-offset-3 col-md-6 text-center">
-                                <form role="form" action="{{action('GestionClientController@EditClient')}}" method="post">
+                                <form role="form" action="{{action('GestionClientController@EditClient')}}"
+                                      method="post">
                                     <input name="id" type="hidden" class="form-control" value="{{  $patate->id }}">
                                     {!! csrf_field() !!}
                                     <div class="row">
@@ -42,7 +43,8 @@
 
                                         <div class="form-group col-lg-6">
                                             <label>Nom</label>
-                                            <input name="name" type="text" class="form-control" value="{{  $patate->name }}" required>
+                                            <input name="name" type="text" class="form-control"
+                                                   value="{{  $patate->name }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
@@ -53,7 +55,8 @@
 
                                         <div class="form-group col-lg-6">
                                             <label>Email</label>
-                                            <input name="email" type="email" class="form-control" value="{{  $patate->email }}" required>
+                                            <input name="email" type="email" class="form-control"
+                                                   value="{{  $patate->email }}" required>
                                         </div>
 
                                         <div class="form-group col-lg-6">
@@ -101,10 +104,12 @@
 
                                         <div class="form-group col-lg-12">
                                             <center>
-                                                <button type="submit" class="btn btn-default">Modifier le client.</button>
+                                                <button type="submit" class="btn btn-default">Modifier le client.
+                                                </button>
                                             </center>
                                             </br>
-                                            <a href="/deleteclient/{{ $patate-> id }}"> <b><u>Supprimer le client</u></b></a>
+                                            <a href="/deleteclient/{{ $patate-> id }}"> <b><u>Supprimer le
+                                                        client</u></b></a>
                                         </div>
                                         <p style="color:green"><?php echo Session::get('message'); ?></p>
                                     </div>
@@ -126,7 +131,8 @@
                         <div class="row">
 
                             <div class="col-lg-12 text-center"><a
-                                        href="/displayajouthistoriqueclient/{{ $patate-> id }}"><b><u>Ajouter un historique</u></b></a></div>
+                                        href="/displayajouthistoriqueclient/{{ $patate-> id }}"><b><u>Ajouter un
+                                            historique</u></b></a></div>
 
                         </div>
                         <div class="panel-body">
@@ -163,7 +169,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><b>ABONNEMENT DU CLIENT</b></div><br>
+                        <div class="panel-heading"><b>ABONNEMENT DU CLIENT</b></div>
+                        <br>
                         <div class="col-lg-12 text-center">
                             <a href="/displayajoutabonnement/{{ $patate-> id }}"><b><u>Ajouter un abonnement</u></b></a>
                         </div>
@@ -225,13 +232,58 @@
                                             }
                                             elseif($abonnement->etat == 3)
                                             {
-                                            ?> <a href="/redemarrerabostopper/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Redémarrer</u></b></a> <?php
+                                            ?><a href="/redemarrerabostopper/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Redémarrer</u></b></a> <?php
                                             }
                                             else {
                                                 echo "Pas d'action possible";
                                             }
                                             ?>
                                         </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>PAIEMENT DU CLIENT</b></div>
+                        <br>
+                        <br>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Titre magazine</th>
+                                    <th>Identifiant de la transaction</th>
+                                    <th>Moyen paiement</th>
+                                    <th>Montant</th>
+                                    <th>Statut</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach ($paiement as $paye)
+                                    <tr>
+                                        <td>{{$paye->abonnement->publication->titre}}</td>
+                                        <td>{{$paye->transaction}}</td>
+                                        <td>{{$paye->type}}</td>
+                                        <td>{{$paye->amount}}€</td>
+                                        <td>  <?php
+                                            if ($paye->statut == 1) {
+                                                echo "Payé";
+                                            } elseif ($paye->etat == 0) {
+                                                echo "Remboursé";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td> <a href="/client/remboursement/{{ $paye -> id }}"><b><u>Rembourser</u></b></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

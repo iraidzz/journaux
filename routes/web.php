@@ -54,5 +54,7 @@ Route::post('/ajouthistoriqueglobal', 'HistoriqueClientController@ajouterHistori
 Route::get('/displayajouthistoriqueclient/{id}', 'HistoriqueClientController@DisplayAjouterHistoriqueClient'); // Formulaire Historique
 Route::post('/ajouthistoriqueclient', 'HistoriqueClientController@AjoutHistoriqueClient'); // Validation Formulaire Historique
 
+/* gestion remboursement */
+Route::get('/client/remboursement/{id}', 'APIPanierController@Remboursement'); // Formulaire Historique
 
 

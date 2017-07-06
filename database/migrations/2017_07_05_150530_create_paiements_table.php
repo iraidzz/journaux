@@ -19,6 +19,7 @@ class CreatePaiementsTable extends Migration
             $table->integer('amount');
             $table->text('transaction');
             $table->integer('abonnement_id');
+            $table->integer('clientid')->nullable();
             $table->integer('statut');//0=remboursé 1=client à payé
             $table->timestamps();
         });

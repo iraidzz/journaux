@@ -30,8 +30,7 @@ class APIPanierController
 
     public function RetourPaiement()
     {
-        if (request()->has('cid'))
-        {
+        if (request()->has('cid')) {
             $data = array(
                 'type' => request('type'),
                 'amount' => request('amount'),
@@ -39,21 +38,18 @@ class APIPanierController
                 'abonnement_id' => request('cid'),
                 'statut' => 1,
             );
-            $i=DB::table('paiements')->insert($data);
-            if($i>0)
-            {
+            $i = DB::table('paiements')->insert($data);
+            if ($i > 0) {
                 return response()->json('Code vert', 200);
-            }else {
+            } else {
                 return response()->json('Code vert', 400);
             }
-        }else {
+        } else {
             return response()->json('Code vert', 500);
 
         }
 
     }
-
-
 
 
     public function Paiement()
@@ -84,6 +80,10 @@ class APIPanierController
                 ->where('id', $cid)
                 ->update(['paye' => 1]);
 
+            DB::table('paiements')
+                ->where('abonnement_id', $cid)
+                ->update(['clientid' => $clientid]);
+
 
             $panier = abonnement::with('publication')->where('client_id', '=', $clientid)->where('paye', '=', 0)->where('etat', '=', 1)->get();
 
@@ -98,12 +98,34 @@ class APIPanierController
             echo "a faire woulah";
         }
 
-//        $compteinfo = DB::table('users')->where('id', '=', $mobilUser['id'])->get();
-//        return response()->json(array(
-//            'error' => false,
-//            'result' => $compteinfo,
-//            'status_code' => 200
-//        ));
     }
+
+
+    public function Remboursement($id)
+    {
+
+        $paiement = DB::table('paiements')->where('id', $id)->get();
+
+        $uuid = "97a53bb0-c73b-06c4-df5a-136dd6f8deec";
+        foreach ($paiement as $patate)
+        {
+            $transaction = $patate->transaction;
+        }
+
+        $url = "http://10.0.0.6:6543/cardpay/$uuid/$transaction";
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        $content = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($content == 200) {
+
+        }
+
+    }
+
 
 }
