@@ -25,11 +25,12 @@ class CreatePublicationsTable extends Migration
 
         DB::table('publications')->insert(
             array(
-                'titre' => 'Les aventures de D.VA',
-                'nombre_numero' => '15',
-                'photo_couverture' => $this->getBase64FromPath('Sans titre.png'),
-                'description' => 'Le méca de D.Va est aussi agile que puissant : ses fusio-canons jumelés tirent en continu à courte portée, et elle peut activer ses turboréacteurs pour bondir par-dessus ennemis et obstacles, ou abattre les projectiles en plein air avec sa matrice défensive.',
-                'prix_annuel' => '85',
+                'titre' => 'Cosmopol',
+                'nombre_numero' => '24',
+                'photo_couverture' => $this->getBase64FromPath('mode2.jpg'),
+                'description' => "Alors que Nicole Kidman pose topless en couverture du V Magazine de septembre, tour d'horizon des couvertures des magazines de mode, qui présentent les tendances automne-hiver 2012-2013.
+                                    Nicole Kidman pour V Magazine, Lady Gaga pour Vogue US, Katy Perry pour Elle UK, Victoria Beckham pour Glamour, Miley Cyrus pour Marie Claire, Nicole Scherzinger pour Cosmopolitan, Claire Danes pour GQ, Gwen Stefani pour Harper's Bazaar... Les magazines de mode dévoilent les couvertures de leur numéro de rentrée, le fameux \"September Issue\", qui présente les tendances automne-hiver 2012-2013",
+                'prix_annuel' => '49',
             )
         );
 
@@ -47,21 +48,20 @@ class CreatePublicationsTable extends Migration
 
         DB::table('publications')->insert(
             array(
-                'titre' => 'Minato le mino',
-                'nombre_numero' => '28',
-                'photo_couverture' => $this->getBase64FromPath('Loick.png'),
-                'description' => 'Lorsque Minato était à l\'Académie, sa camarade de classe Kushina Uzumaki lui trouvait un air de fille avec un visage floconneux et qu\'il avait l\'air « peu fiable ». Néanmoins, il avait pour ambition de devenir Hokage pour être reconnu par les villageois de Konoha. Kushina le prit alors pour un rêveur avec des projets impossibles[...]',
-                'prix_annuel' => '101',
+                'titre' => 'Tennis',
+                'nombre_numero' => '36',
+                'photo_couverture' => $this->getBase64FromPath('tennis.jpg'),
+                'description' => "Au hasard des compétitions, il arrive que des rencontres sportives tournent littéralement à la tripotée. Comment les perdants surmontent-ils l'épreuve de l'humiliation? Nous avons menée l'enquête auprès d'hommes battus et abattus.",
+                'prix_annuel' => '64',
             )
         );
 
         DB::table('publications')->insert(
             array(
-                'titre' => 'Overwatch: le monde à besoin de héros',
+                'titre' => "L'officiel",
                 'nombre_numero' => '12',
-                'photo_couverture' => $this->getBase64FromPath('Overwatch.png'),
-                'description' => 'L\'histoire commece il y a un peu plus de 30 ans (ndlr : environ 2045.) Lorsqu\'Omnica Corporation révolutionna l\'industrie robotique, le monde parut sur le point d\'entrer dans un âge d\'or économique. Les énormes usines d\'Omnica, dotées de machines de construction automatisées et d\'algorithmes intelligents, furent brevetées, vendues sous le nom d\'« Omniums », et installées sur tous les continents.
-Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omniums commencèrent à tomber en panne. Des analyses indépendantes montrèrent qu\'ils ne pourraient jamais s\'approcher des promesses du fabricant en matière de croissance et de rendement. Omnica subit un audit, puis une dissolution forcée après la découverte de preuves de fraudes. Les omniums furent fermés. « peu fiable ». Néanmoins, il avait pour ambition de devenir Hokage pour être reconnu par les villageois de Konoha. Kushina le prit alors pour un rêveur avec des projets impossibles[...]',
+                'photo_couverture' => $this->getBase64FromPath('lofficiel.jpg'),
+                'description' => "Il fait beau, il fait chaud. Sortons les maillots, rangeons les robes longues [...]",
                 'prix_annuel' => '50',
             )
         );
@@ -96,17 +96,44 @@ Les informations ne manquent pas sur ce qu\'il s\'est passé ensuite. Les omnium
             )
         );
 
+        DB::table('publications')->insert(
+            array(
+                'titre' => 'Entrepreneurs de demain : pour les jeunes',
+                'nombre_numero' => '42',
+                'photo_couverture' => $this->getBase64FromPath('20160818180019-entrepreneur-magazine-september-2016.png'),
+                'description' => "Zlatan Ibrahimović (prononcé [ˈslaː.tan ɪ.bra.ˈhiː.mɔ.vɪtʂ] en suédois, [ˈzla.tan i.bra.ˈxiː.mɔ.ʋitɕ] en bosnien) est un footballeur international suédois, né le 3 octobre 1981 à Malmö.
+
+Il est considéré comme l'un des avants-centres le plus complets au monde et considéré comme l'un des meilleurs joueurs suédois de l'histoire du football3,4,5.
+
+Zlatan Ibrahimović a la particularité d'avoir remporté le titre de champion dans quatre championnats différents : aux Pays-Bas avec l'Ajax Amsterdam, en Italie avec l'Inter de Milan et le Milan AC, en Espagne avec le FC Barcelone puis en France avec le Paris Saint-Germain. Avant l'affaire des matchs truqués du Calcio et les deux titres retirés à la Juventus de Turin, il avait remporté le championnat dans tous ses clubs depuis 2002, dont huit consécutivement, de 2004 à 2011.
+
+À l'inverse, son bilan en coupes d'Europe est beaucoup plus mitigé : bien qu'il participe à plusieurs campagnes européennes avec ses clubs successifs, il n’atteint jamais la finale de la Ligue des champions. Il remporte néanmoins 3 titres internationaux: La Supercoupe de l'UEFA et la Coupe du monde des clubs de la FIFA avec Barcelone en 2009 ainsi que la Ligue Europa avec Manchester United en 2017 malgré une blessure au genou l'empêchant de participer à la finale dans son pays natal.
+",
+                'prix_annuel' => '99',
+            )
+        );
+
+        DB::table('publications')->insert(
+            array(
+                'titre' => 'Mariabir',
+                'nombre_numero' => '12',
+                'photo_couverture' => $this->getBase64FromPath('mode1.jpg'),
+                'description' => "Encore et toujours la mode. On ne passera pas à travers. Ce magazine vous donnera les dernieres tendance de l'année.",
+                'prix_annuel' => '36',
+            )
+        );
+
         // Génération données bidon
         $i=1;
-        while($i<20)
+        while($i<5)
         {
-            $numeroPublication = random_int(1,1000);
+            $numeroPublication = random_int(1,500);
             $valueNumero = random_int(1,50);
-            $valuePrix = random_int(1,200);
+            $valuePrix = random_int(1,100);
             $textAleatoire = chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) .  chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90));
             DB::table('publications')->insert(
                 array(
-                    'titre' => 'Publication numéro '.$numeroPublication,
+                    'titre' => 'Enregistrement de test '.$numeroPublication,
                     'nombre_numero' => $valueNumero,
                     'photo_couverture' => $this->getBase64FromPath('NiFound.png'),
                     'description' => $textAleatoire,
