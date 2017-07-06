@@ -48,7 +48,7 @@ class APIPanierController
 //            return response()->json('KO', 401);
 //        }
 
-
+return response()->json('CODE VERT','200');
 
     }
 
