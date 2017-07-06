@@ -253,8 +253,6 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>PAIEMENT DU CLIENT</b></div>
-                        <br>
-                        <br>
                         <div class="panel-body">
                             <table class="table">
                                 <thead>
@@ -283,7 +281,14 @@
                                             }
                                             ?>
                                         </td>
-                                        <td> <a href="/client/remboursement/{{ $paye -> id }}"><b><u>Rembourser</u></b></a></td>
+                                        <td>  <?php
+                                            if ($paye->statut == 1) {
+                                                ?><a href="/client/remboursement/{{ $paye -> id }}/{{ $patate-> id }}"><b><u>Rembourser</u></b></a><?php
+                                            } elseif ($paye->etat == 0) {
+                                                echo "Aucune action";
+                                            }
+                                            ?>
+                                           </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

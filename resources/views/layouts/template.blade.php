@@ -55,6 +55,10 @@
                 <a class="navbar-brand" href="{{ url('/historiqueclient') }}">
                     | Gestion historiques clients
                 </a>
+
+                <a class="navbar-brand" href="{{ url('/paiementenretard') }}">
+                    | Paiement en retard
+                </a>
             @endif
         </div>
 
@@ -98,6 +102,11 @@
                             <li>
                                 <a href="{{ url('/historiqueclient') }}">
                                     <i>Historique client</i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/paiementenretard') }}">
+                                    <i>Paiement en retard</i>
                                 </a>
                             </li>
                             <li>

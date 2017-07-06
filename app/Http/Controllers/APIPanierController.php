@@ -101,14 +101,14 @@ class APIPanierController
     }
 
 
-    public function Remboursement($id)
+    public function Remboursement($payeid, $clientid)
     {
 
-        $paiement = DB::table('paiements')->where('id', $id)->get();
+        $paiement = DB::table('paiements')->where('id', $payeid)->get();
+//dd($paiement);
 
         $uuid = "97a53bb0-c73b-06c4-df5a-136dd6f8deec";
-        foreach ($paiement as $patate)
-        {
+        foreach ($paiement as $patate) {
             $transaction = $patate->transaction;
         }
 
@@ -123,8 +123,28 @@ class APIPanierController
 
         if ($content == 200) {
 
+            $i = DB::table('paiements')
+                ->where('id', $payeid)
+                ->update(['statut' => 0]);
+            if ($i > 0) {
+                return redirect("/client/$clientid");
+            }else
+            {
+                echo "Problème dans l'update des données sur abonnements";
+            }
+        }elseif ($content == 400)
+        {
+            echo "Remboursement déjà effectué ou un des paramètres est incorrect";
         }
 
+
+    }
+
+
+    public function DisplayRetardPaiement()
+    {
+        $paiement = DB::table('abonnements')->orderBy('id')->where('paye', '=', '0')->get();
+        return View::make('paiementretard')->with('paiement', $paiement);
     }
 
 

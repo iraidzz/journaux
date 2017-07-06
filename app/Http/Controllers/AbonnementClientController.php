@@ -77,7 +77,8 @@ foreach($getprix as $prix)
         $client = DB::table('users')->where('id', '=', $idclient)->get();
         $histo = \App\historique::all()->where('user_id', '=', $idclient);
         $abo = \App\abonnement::all()->where('client_id', '=', $idclient)->sortBy('id');
-        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo);
+        $paiement = \App\paiement::all()->where('clientid', '=', $idclient);
+        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo)->with('paiement',$paiement);
     }
 
     public function PauseAboEnCours($id, $idclient)
@@ -89,7 +90,8 @@ foreach($getprix as $prix)
         $client = DB::table('users')->where('id', '=', $idclient)->get();
         $histo = \App\historique::all()->where('user_id', '=', $idclient);
         $abo = \App\abonnement::all()->where('client_id', '=', $idclient)->sortBy('id');
-        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo);
+        $paiement = \App\paiement::all()->where('clientid', '=', $idclient);
+        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo)->with('paiement',$paiement);
     }
 
     public function RedemarrerAboEnPause($id, $idclient)
@@ -101,7 +103,8 @@ foreach($getprix as $prix)
         $client = DB::table('users')->where('id', '=', $idclient)->get();
         $histo = \App\historique::all()->where('user_id', '=', $idclient);
         $abo = \App\abonnement::all()->where('client_id', '=', $idclient)->sortBy('id');
-        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo);
+        $paiement = \App\paiement::all()->where('clientid', '=', $idclient);
+        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo)->with('paiement',$paiement);
     }
 
     public function ArreterAboEnPause($id, $idclient)
@@ -113,7 +116,8 @@ foreach($getprix as $prix)
         $client = DB::table('users')->where('id', '=', $idclient)->get();
         $histo = \App\historique::all()->where('user_id', '=', $idclient);
         $abo = \App\abonnement::all()->where('client_id', '=', $idclient)->sortBy('id');
-        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo);
+        $paiement = \App\paiement::all()->where('clientid', '=', $idclient);
+        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo)->with('paiement',$paiement);
     }
 
     public function RedemarrerAboStopper($id, $idclient)
@@ -125,7 +129,8 @@ foreach($getprix as $prix)
         $client = DB::table('users')->where('id', '=', $idclient)->get();
         $histo = \App\historique::all()->where('user_id', '=', $idclient);
         $abo = \App\abonnement::all()->where('client_id', '=', $idclient)->sortBy('id');
-        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo);
+        $paiement = \App\paiement::all()->where('clientid', '=', $idclient);
+        return View::make('editclient')->with('client', $client)->with('histo', $histo)->with('abo', $abo)->with('paiement',$paiement);
     }
 
 }

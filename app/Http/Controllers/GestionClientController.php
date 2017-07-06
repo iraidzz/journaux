@@ -26,7 +26,7 @@ class GestionClientController extends Controller
      */
     public function index()
     {
-        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->where('supprimer', '=', false)->get();
         return View::make('gestionclient')->with('client', $client);
     }
 
@@ -49,9 +49,12 @@ class GestionClientController extends Controller
     public function DeleteClient($id)
     {
 
-        DB::table('users')->where('id', '=', $id)->delete();
+//        DB::table('users')->where('id', '=', $id)->delete();
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['supprimer' => true]);
 
-        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->where('supprimer', '=', false)->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -76,7 +79,7 @@ class GestionClientController extends Controller
                 'postal_domicile' => $post['postal_domicile'],
                 'ville_domicile' => $post['ville_domicile']]);
 
-        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->get();
+        $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->where('supprimer', '=', false)->get();
         return View::make('gestionclient')->with('client', $client);
 
     }
@@ -88,10 +91,10 @@ class GestionClientController extends Controller
         $laValeurRecherchee = $post['name'];
 
         if ($laValeurRecherchee == '') {
-            $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->get();
+            $client = DB::table('users')->orderBy('id')->where('prenom', '!=', '')->where('supprimer', '=', false)->get();
             return View::make('gestionclient')->with('client', $client);
         } else {
-            $client = DB::table('users')->where('name', '=', $laValeurRecherchee)->get();
+            $client = DB::table('users')->where('name', '=', $laValeurRecherchee)->where('supprimer', '=', false)->get();
             return View::make('gestionclient')->with('client', $client);
         }
     }

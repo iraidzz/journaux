@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('adresse_domicile')->nullable();
             $table->string('postal_domicile')->nullable();
             $table->string('ville_domicile')->nullable();
+            $table->boolean('supprimer')->default(false);
 
             $table->rememberToken();
             $table->timestamps();
