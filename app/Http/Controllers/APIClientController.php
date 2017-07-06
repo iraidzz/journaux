@@ -28,7 +28,7 @@ class APIClientController extends Controller
     public function mesabonnements($id)
     {
 
-        $mesabonnements = DB::table('abonnements')->where('client_id', '=', $id)->where('etat', '=', '1')->get();
+        $mesabonnements = DB::table('abonnements')->where('client_id', '=', $id)->where('etat', '=', '1')->where('date_fin','>=', date('Y-m-d'))->get();
         return response()->json(array(
             'error' => false,
             'result' => $mesabonnements,

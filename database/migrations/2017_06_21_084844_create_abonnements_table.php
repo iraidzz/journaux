@@ -57,9 +57,9 @@ class CreateAbonnementsTable extends Migration
                 'client_id' => '1',
                 'publication_id' => '3',
                 'prix' => '101',
-                'date_debut' => '09/07/2016',
-                'date_fin' => '09/07/2017',
-                'date_pause' => '09/07/2017',
+                'date_debut' => '09/08/2016',
+                'date_fin' => '09/08/2017',
+                'date_pause' => '09/08/2017',
                 'etat' => '1',
                 'paye' => 0,
 
