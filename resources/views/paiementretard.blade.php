@@ -24,8 +24,8 @@
                                 <tr>
                                     <td>{{  $paye->client->name }}</td>
                                     <td>{{  $paye->publication->titre }}</td>
-                                    <td>{{  $paye->date_debut }}</td>
-                                    <td>{{  $paye->prix }}</td>
+                                    <td><?=date_format(date_create($paye->date_debut), 'd/m/Y');?></td>
+                                    <td>{{  $paye->prix }} €</td>
                                 </tr>
                             @endforeach
                             </tbody>
