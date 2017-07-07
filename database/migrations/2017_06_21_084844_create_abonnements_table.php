@@ -27,7 +27,7 @@ class CreateAbonnementsTable extends Migration
 
         DB::table('abonnements')->insert(
             array(
-                'client_id' => '1',
+                'client_id' => '2',
                 'publication_id' => '1',
                 'prix' => '85',
                 'date_debut' => '25/04/2017',
@@ -40,7 +40,7 @@ class CreateAbonnementsTable extends Migration
 
         DB::table('abonnements')->insert(
             array(
-                'client_id' => '1',
+                'client_id' => '2',
                 'publication_id' => '2',
                 'prix' => '45',
                 'date_debut' => '11/11/2016',
@@ -54,7 +54,7 @@ class CreateAbonnementsTable extends Migration
 
         DB::table('abonnements')->insert(
             array(
-                'client_id' => '1',
+                'client_id' => '2',
                 'publication_id' => '3',
                 'prix' => '101',
                 'date_debut' => '09/08/2016',
@@ -68,7 +68,7 @@ class CreateAbonnementsTable extends Migration
 
         DB::table('abonnements')->insert(
             array(
-                'client_id' => '1',
+                'client_id' => '2',
                 'publication_id' => '4',
                 'prix' => '50',
                 'date_debut' => '09/07/2015',
