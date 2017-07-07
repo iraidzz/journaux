@@ -143,8 +143,9 @@ class APIPanierController
 
     public function DisplayRetardPaiement()
     {
-        $paiement = DB::table('abonnements')->orderBy('id')->where('paye', '=', '0')->get();
-        return View::make('paiementretard')->with('paiement', $paiement);
+        $abo = \App\abonnement::all()->where('paye', '=', '0');
+
+        return View::make('paiementretard')->with('paiement', $abo);
     }
 
 
