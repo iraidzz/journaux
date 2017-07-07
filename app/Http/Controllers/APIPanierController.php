@@ -95,7 +95,10 @@ class APIPanierController
             ));
 
         } else {
-            echo "a faire woulah";
+            return response()->json(array(
+                'error' => true,
+                'status_code' => 401,
+                'result'=>'ErreurPaiement'));
         }
 
     }
