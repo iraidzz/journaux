@@ -108,7 +108,7 @@ class APIPanierController
     {
 
         $paiement = DB::table('paiements')->where('id', $payeid)->get();
-//dd($paiement);
+
 
         $uuid = "97a53bb0-c73b-06c4-df5a-136dd6f8deec";
         foreach ($paiement as $patate) {
