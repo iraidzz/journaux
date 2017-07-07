@@ -47,7 +47,7 @@
                                     <td>{{  $patate->name }}</td>
                                     <td>{{  $patate->email }}</td>
                                     <td>{{  $patate->numero_telephone }}</td>
-                                    <td><a href="/client/{{ $patate-> id }}"> <b><u>Détails</u></b></a></td>
+                                    <td><a href="{{ url('/client/'.$patate-> id) }}"> <b><u>Détails</u></b></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

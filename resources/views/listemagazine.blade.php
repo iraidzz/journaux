@@ -62,7 +62,7 @@
                                     <input name="nombre_numero" type="text" disabled value="{{$article->nombre_numero}} Numéros" class="form-control">
                                 </div>
                                 <div class="form-group col-lg-12">
-                                    <center><a href="/publication/{{$article->id}}" class="btn btn-primary">Editer le publication</a></center>
+                                    <center><a href="/journaux/public/publication/{{$article->id}}" class="btn btn-primary">Editer le publication</a></center>
                                 </div>
                             </div>
                             <div class="col-lg-4"><br><br>

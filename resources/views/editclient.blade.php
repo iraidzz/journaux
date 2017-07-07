@@ -108,7 +108,8 @@
                                                 </button>
                                             </center>
                                             </br>
-                                            <a href="/deleteclient/{{ $patate-> id }}"> <b><u>Supprimer le
+
+                                            <a href="{{ url('/deleteclient/'.$patate-> id) }}"> <b><u>Supprimer le
                                                         client</u></b></a>
                                         </div>
                                         <p style="color:green"><?php echo Session::get('message'); ?></p>
@@ -131,9 +132,8 @@
                         <div class="row">
 
                             <div class="col-lg-12 text-center"><a
-                                        href="/displayajouthistoriqueclient/{{ $patate-> id }}"><b><u>Ajouter un
+                                        href="{{ url('/displayajouthistoriqueclient/'.$patate-> id) }}"><b><u>Ajouter un
                                             historique</u></b></a></div>
-
                         </div>
                         <div class="panel-body">
                             <table class="table">
@@ -172,7 +172,7 @@
                         <div class="panel-heading"><b>ABONNEMENT DU CLIENT</b></div>
                         <br>
                         <div class="col-lg-12 text-center">
-                            <a href="/displayajoutabonnement/{{ $patate-> id }}"><b><u>Ajouter un abonnement</u></b></a>
+                            <a href="{{ url('/displayajoutabonnement/'.$patate-> id) }}"><b><u>Ajouter un abonnement</u></b></a>
                         </div>
                         <br>
                         <div class="panel-body">
@@ -216,23 +216,24 @@
                                             if($abonnement->etat == 1)
                                             {
                                             ?>
-                                            <a href="/arreteraboencours/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Arrêter</u></b></a>
+
+                                            <a href="{{ url('/arreteraboencours/'.$abonnement-> id.'/'.$patate-> id) }}"><b><u>Arrêter</u></b></a>
                                             |
-                                            <a href="/pauseaboencours/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Pause</u></b></a>
+                                            <a href=" {{ url('/pauseaboencours/'.$abonnement-> id.'/'.$patate-> id) }}"><b><u>Pause</u></b></a>
                                             <?php
                                             }
                                             elseif($abonnement->etat == 2)
                                             {
                                             ?>
-                                            <a href="/redemarreraboenpause/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Redémarrer</u></b></a>
+                                            <a href="{{ url('/redemarreraboenpause/'.$abonnement-> id.'/'.$patate-> id) }}"><b><u>Redémarrer</u></b></a>
                                             |
-                                            <a href="/arreteraboenpause/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Arrêter</u></b></a>
+                                            <a href="{{ url('/arreteraboenpause/'.$abonnement-> id.'/'.$patate-> id) }}"><b><u>Arrêter</u></b></a>
 
                                             <?php
                                             }
                                             elseif($abonnement->etat == 3)
                                             {
-                                            ?><a href="/redemarrerabostopper/{{ $abonnement-> id }}/{{ $patate-> id }}"><b><u>Redémarrer</u></b></a> <?php
+                                            ?><a href="{{ url('/redemarreraboenpause/'.$abonnement-> id.'/'.$patate-> id) }}"><b><u>Redémarrer</u></b></a><?php
                                             }
                                             else {
                                                 echo "Pas d'action possible";
@@ -283,7 +284,7 @@
                                         </td>
                                         <td>  <?php
                                             if ($paye->statut == 1) {
-                                                ?><a href="/client/remboursement/{{ $paye -> id }}/{{ $patate-> id }}"><b><u>Rembourser</u></b></a><?php
+                                            ?><a href="{{ url('/client/remboursement/'.$paye -> id.'/'.$patate-> id) }}"><b><u>Rembourser</u></b></a><?php
                                             } elseif ($paye->etat == 0) {
                                                 echo "Aucune action";
                                             }

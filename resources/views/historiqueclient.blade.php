@@ -9,7 +9,7 @@
                     <div class="panel-heading"><b>HISTORIQUES DE COMMUNICATION AVEC LES CLIENTS</b></div>
                     <br>
                     <div class="row">
-                        <div class="col-lg-12 text-center"><a href="/creerhistoriqueglobal"><b><u><i>Ajouter un historique</i></u></b></a></div>
+                        <div class="col-lg-12 text-center"><a href="{{ url('/creerhistoriqueglobal') }}"><b><u><i>Ajouter un historique</i></u></b></a></div>
                     </div>
                     <div class="panel-body">
                         <table class="table">
