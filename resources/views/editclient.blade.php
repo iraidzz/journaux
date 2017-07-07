@@ -154,7 +154,7 @@
                                         <td>{{  $historique-> user -> name }}</td>
                                         <td>{{  $historique-> user_employe -> name }}</td>
                                         <td>{{  $historique->type_communication }}</td>
-                                        <td>{{  $historique->date }}</td>
+                                        <td><?=date_format(date_create($historique->date), 'd/m/Y');?></td>
                                         <td>{{  $historique->commentaire }}</td>
                                     </tr>
                                 @endforeach
@@ -194,9 +194,9 @@
                                     <tr>
                                         <td>{{$abonnement->publication->titre}}</td>
                                         <td>{{$abonnement->prix}}€</td>
-                                        <td>{{$abonnement->date_debut}}</td>
-                                        <td>{{$abonnement->date_fin}}</td>
-                                        <td>{{$abonnement->date_pause}}</td>
+                                        <td><?=date_format(date_create($abonnement->date_debut), 'd/m/Y');?></td>
+                                        <td><?=date_format(date_create($abonnement->date_fin), 'd/m/Y');?></td>
+                                        <td><?=date_format(date_create($abonnement->date_pause), 'd/m/Y');?></td>
                                         <td>  <?php
 
                                             if ($abonnement->etat == 1) {
@@ -204,7 +204,7 @@
                                             } elseif ($abonnement->etat == 2) {
                                                 echo "En pause";
                                             } elseif ($abonnement->etat == 3) {
-                                                echo "Arrêter";
+                                                echo "Arrêté";
                                             } else {
                                                 echo "erreur d'affichage";
                                             }

@@ -30,7 +30,7 @@
                                     <td>{{  $patate-> user -> name }}</td>
                                     <td>{{  $patate-> user_employe -> name }}</td>
                                     <td>{{  $patate->type_communication }}</td>
-                                    <td>{{  $patate->date }}</td>
+                                    <td><?=date_format(date_create($patate->date), 'd/m/Y');?></td>
                                     <td>{{  $patate->commentaire }}</td>
                                 </tr>
                             @endforeach
